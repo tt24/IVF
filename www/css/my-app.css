@@ -3,7 +3,6 @@
 /* Changing key colour throughout app*/
 #wider {
   height: 110px;
-  font-size: 3vw;
 }
 
 .tabbar a.active {
@@ -190,6 +189,16 @@ i.arrow_down {
 
 .list-block .item-title.blue {
     color: #56A79C;
+}
+
+.list-block .item-title.low {
+    color: #50C099;
+}
+.list-block .item-title.medium {
+    color: #5B8D9E;
+}
+.list-block .item-title.high {
+    color: #6B5D79;
 }
 
 /* instructions questionnaire */
@@ -489,19 +498,16 @@ div.white_background {
     height: 100%;
 }
 
-a.action_image {
+figure.action_image {
     text-align: center;
     display: inline-block;
-    text-decoration: none;
-    color: #000;
-    font-weight: bold;
 }
 
-action_image img {
+figure.action_image img {
     width: 100px;
 }
 
-home_text {
+figure.action_image figcaption {
     color: #000;
     font-weight: bold;
 }
@@ -689,10 +695,10 @@ div.results_list {
 -webkit-touch-callout: none;
 }
 
-/*.list-block .item-text {
+.list-block .item-text {
     height: 20px;
     width: 180px;
-}*/
+}
 
 .center {
     text-align: center;
