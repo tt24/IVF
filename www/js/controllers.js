@@ -25,6 +25,13 @@ angular.module('starter.controllers', [])
   $scope.chat = Chats.get($stateParams.chatId);
 })
 
+.controller('CalcTabCtrl', function($scope) {
+  $scope.activeTabId=1;
+  $scope.setActiveTab=function(tabId) {
+    $scope.activeTabId=tabId;
+  };
+}) 
+
 .controller('SurveyController', function($scope, $ionicSlideBoxDelegate){
   
   //Hack to disable slidebox

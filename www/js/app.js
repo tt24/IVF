@@ -74,6 +74,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         controller: 'AccountCtrl'
       }
     }
+  })
+
+  .state('tab.account-privacy', {
+    url: '/account/privacy',
+    views: {
+      'tab-account': {
+        templateUrl: 'templates/privacy.html'
+      }
+    }
   });
 
   // if none of the above states are matched, use this as the fallback
