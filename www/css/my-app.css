@@ -27,6 +27,17 @@ i.icon.icon-next-blue {
 i.icon.icon-prev-blue {
   background: url("data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 15 15'><g><path fill='%2356A79C' d='M14,1.6v11.8L2.2,7.6L14,1.6 M15,0L0,7.6L15,15V0L15,0z'/></g></svg>");
 }
+div.home_text {
+  color: #808080;
+}
+
+.slider{
+  position: absolute !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important ;
+  right: 0 !important;
+}
 
 .button {
   border: 1px solid #56A79C;

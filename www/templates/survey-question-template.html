@@ -1,0 +1,10 @@
+
+  <ion-header-bar class="bar-stable bar-secondary" align-title="center">
+    <button class="button button-clear" ng-click="previousQuestion(question.model)" ng-hide="hidePreviousButton()">
+      <i class="icon ion-chevron-left"></i>Back</button>
+    <h4 class="title" align-title="center">{{question.label}}</h4>
+  </ion-header-bar>
+  
+  <ion-content class="has-header">
+    <button class="button button-full button-clear" ng-repeat="option in question.options" ng-click="setAnswer(question.model, option.value)">{{option.text}}</button>
+  </ion-content>
