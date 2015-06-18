@@ -7,22 +7,6 @@ angular.module('starter.controllers', [])
 .controller('CalcCtrl', function($scope) {})
 
 .controller('ChatsCtrl', function($scope, Chats) {
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
-  
-  $scope.chats = Chats.all();
-  $scope.remove = function(chat) {
-    Chats.remove(chat);
-  }
-})
-
-.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
-  $scope.chat = Chats.get($stateParams.chatId);
 })
 
 .controller('CalcTabCtrl', function($scope) {
@@ -32,18 +16,17 @@ angular.module('starter.controllers', [])
   };
 }) 
 
-.controller('GraphCtrl', function($scope) {
+.controller('GraphCtrl', function($scope, LocalStorage) {
+  var savedData = LocalStorage.getObject(saveKey);
+  
   $scope.graph = {};
-  $scope.graph.data = [
-    //Awake
-    [16, 15, 20, 12, 16, 12, 8]
-  ];
-  $scope.graph.labels = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+  $scope.graph.data = [savedData.percentages];
+  $scope.graph.labels = savedData.dates;
   $scope.graph.series = ['Awake'];
 
 })
 
-.controller('SurveyController', function($scope, $ionicSlideBoxDelegate){
+.controller('SurveyController', function($scope, $ionicSlideBoxDelegate, LocalStorage){
   
   //Hack to disable slidebox
   $scope.disableSwipe = function(){
@@ -220,12 +203,57 @@ $scope.questions = [
         prob = Math.round(prob * 10) / 10;
         
         $scope.percentage = prob;
+        $scope.saveData(prob);
 
+      };
+      
+      var getCurrentDate = function(){
+         var today = new Date();
+          var dd = today.getDate();
+          var mm = today.getMonth()+1;  //January is 0
+          var yyyy = today.getFullYear();
+          
+          var date = '';
+          
+          if(dd < 10) date += '0';
+          date += dd + '/';
+          if(mm < 10) date += '0' ;
+          date += mm + '/';
+          date += yyyy;   
+          
+          return date;     
+      };
+      
+      $scope.saveData = function(percentage){
+
+        //Loading previous saves if they exist
+        var saveJson = LocalStorage.getObject(saveKey);
+        
+        var currentDate = getCurrentDate();
+        
+        //Handilng first-time users, creating key-value pair
+        if(Object.keys(saveJson).length === 0){
+          saveJson = {
+            dates:[currentDate],
+            percentages:[percentage]
+          };
+        }
+        //For already existing saves just push the arrays
+        else{
+          saveJson.dates.push(currentDate);
+          saveJson.percentages.push(percentage);
+        }
+        LocalStorage.setObject(saveKey, saveJson);
+        $scope.percentage = LocalStorage.getObject(saveKey);
       };
       
       $scope.restartTest = function(){
         $scope.answers = {};
         $ionicSlideBoxDelegate.slide(0);
+      };
+      
+      $scope.resetSave = function(){
+        LocalStorage.setObject(saveKey, {dates:[], percentages:[]});
       };
 })
 
