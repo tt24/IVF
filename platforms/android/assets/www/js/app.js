@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'chart.js'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -57,14 +57,13 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
-    .state('tab.chat-detail', {
-      url: '/chats/:chatId',
-      views: {
-        'tab-chats': {
-          templateUrl: 'templates/chat-detail.html',
-          controller: 'ChatDetailCtrl'
-        }
-      }
+    .state('tab.chats.instructions',{
+      url: '/instructions',
+      templateUrl: 'templates/instructions.html'
+    })
+    .state('tab.chats.calculator',{
+      url: '/calculator',
+      templateUrl: 'templates/calculator.html'
     })
 
   .state('tab.account', {
@@ -75,9 +74,73 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         controller: 'AccountCtrl'
       }
     }
+  })
+
+  .state('tab.account-privacy', {
+    url: '/account/privacy',
+    views: {
+      'tab-account': {
+        templateUrl: 'templates/privacy.html'
+      }
+    }
+  })
+
+    .state('tab.dash-results', {
+    url: '/dash/results',
+    views: {
+      'tab-dash': {
+        templateUrl: 'templates/results.html'
+      }
+    }
+  })
+  
+   .state('tab.dash-information', {
+      url: '/dash/information',
+      views: {
+        'tab-dash': {
+        templateUrl: 'templates/information.html', 
+        controller: 'AboutCtrl'
+      }
+   }
   });
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/dash');
 
+})
+
+.directive('surveyQuestion', function(){
+  return {
+    restrict:'E',
+    templateUrl: 'templates/survey-question-template.html',
+    controller: function($scope, $ionicSlideBoxDelegate){
+      $scope.nextQuestion = function(){
+        $ionicSlideBoxDelegate.next();
+      };
+      
+      $scope.previousQuestion = function(idToRemove){
+        delete $scope.answers[idToRemove]; //Remove last element
+        $ionicSlideBoxDelegate.previous();
+      };
+      
+      $scope.hidePreviousButton = function(){
+        return $ionicSlideBoxDelegate.currentIndex() == 0;
+      };
+      
+      $scope.hideNextButton = function(){
+        //The last index is the results page
+        return $ionicSlideBoxDelegate.currentIndex() == ($ionicSlideBoxDelegate.slidesCount() - 2);
+      };    
+        
+      $scope.setAnswer = function(id, value){
+        $scope.answers[id] = value;
+        $scope.nextQuestion();  
+        if(Object.keys($scope.answers).length == $scope.questions.length){
+          $scope.calculateResults();
+        }      
+      };
+    },
+    controllerAs:'survey'
+    
+  };
 });

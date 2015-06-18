@@ -44,6 +44,7 @@
 		678A41F414D945C2B533280A /* CDVLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7D06FF1E7841E19EF3F4F5 /* CDVLogger.m */; };
 		C8AF447C69924E5788E18D7D /* CDVDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = F8792E39D68149C6B4B61AA3 /* CDVDevice.m */; };
 		B1A56C6CD7644FDAAA75626D /* CDVSplashScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = E083818FA4DF47CF88BB1580 /* CDVSplashScreen.m */; };
+		2F3C92C684844B2C8312E4AA /* CDVInAppBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 793A751F127D4CD5A5CE5789 /* CDVInAppBrowser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +120,8 @@
 		C3EFF12149D1410E95349F7A /* CDVDevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVDevice.h"; path = "cordova-plugin-device/CDVDevice.h"; sourceTree = "<group>"; fileEncoding = 4; };
 		E083818FA4DF47CF88BB1580 /* CDVSplashScreen.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVSplashScreen.m"; path = "cordova-plugin-splashscreen/CDVSplashScreen.m"; sourceTree = "<group>"; fileEncoding = 4; };
 		59170B7B0EDB4A558B98F81F /* CDVSplashScreen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVSplashScreen.h"; path = "cordova-plugin-splashscreen/CDVSplashScreen.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		793A751F127D4CD5A5CE5789 /* CDVInAppBrowser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVInAppBrowser.m"; path = "org.apache.cordova.inappbrowser/CDVInAppBrowser.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		8D0E4A6D781D4EC3BF4A853E /* CDVInAppBrowser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVInAppBrowser.h"; path = "org.apache.cordova.inappbrowser/CDVInAppBrowser.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +230,8 @@
 				C3EFF12149D1410E95349F7A /* CDVDevice.h */,
 				E083818FA4DF47CF88BB1580 /* CDVSplashScreen.m */,
 				59170B7B0EDB4A558B98F81F /* CDVSplashScreen.h */,
+				793A751F127D4CD5A5CE5789 /* CDVInAppBrowser.m */,
+				8D0E4A6D781D4EC3BF4A853E /* CDVInAppBrowser.h */,
 			);
 			name = Plugins;
 			path = "IVFpredict/Plugins";
@@ -416,6 +421,7 @@
 				678A41F414D945C2B533280A /* CDVLogger.m in Sources */,
 				C8AF447C69924E5788E18D7D /* CDVDevice.m in Sources */,
 				B1A56C6CD7644FDAAA75626D /* CDVSplashScreen.m in Sources */,
+				2F3C92C684844B2C8312E4AA /* CDVInAppBrowser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

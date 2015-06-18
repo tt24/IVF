@@ -15,17 +15,13 @@ progress {
   height: 1.8em;
 }
 
-ion-nav-back-button.white_colour {
-  color: white;
-}
-
 .bar-green {
   background-color: #56A79C;
-  color: white;
 }
 
-canvas.graph {
-  color: #56A79C;
+
+.nav-bar-block, .bar {
+  background-color: inherit !important;
 }
 
 .tabbar a.active {
