@@ -67,4 +67,8 @@
     <splash src="resources/android/splash/drawable-port-xxhdpi-screen.png" density="port-xxhdpi"/>
     <splash src="resources/android/splash/drawable-port-xxxhdpi-screen.png" density="port-xxxhdpi"/>
   </platform>
+  <feature name="InAppBrowser">
+    <param name="ios-package" value="CDVInAppBrowser" />
+    <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
+  </feature>
 </widget>
