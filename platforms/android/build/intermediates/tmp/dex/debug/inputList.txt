@@ -1,0 +1,2 @@
+/cs/home/jac32/Documents/SummerInternship2015/test/IVF/platforms/android/build/intermediates/classes/debug
+/cs/home/jac32/Documents/SummerInternship2015/test/IVF/platforms/android/build/intermediates/pre-dexed/debug/classes-46b00adeaaaf0ae19d23e53f0cf8fa9b94ad8195.jar

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/cs/home/jac32/Documents/SummerInternship2015/test/IVF/platforms/android/build/intermediates/exploded-aar/android/CordovaLib/unspecified/debug/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="367a740771dbc7505e09ad6bad753a0a0c787611">
+        <dex dex="/cs/home/jac32/Documents/SummerInternship2015/test/IVF/platforms/android/build/intermediates/pre-dexed/debug/classes-46b00adeaaaf0ae19d23e53f0cf8fa9b94ad8195.jar" />
+    </item>
+
+</items>
