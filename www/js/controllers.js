@@ -33,11 +33,22 @@ angular.module('starter.controllers', [])
 }) 
 
 .controller('GraphCtrl', function($scope) {
+  Chart.defaults.global.colours = [
+    { // light grey
+        fillColor: "rgba(220,220,220,0.2)",
+        strokeColor: "#6B5D79",
+        pointColor: "rgba(220,220,220,1)",
+        pointStrokeColor: "#6B5D79",
+        pointHighlightFill: "#6B5D79",
+        pointHighlightStroke: "rgba(220,220,220,0.8)"
+    }
+];
   $scope.graph = {};
   $scope.graph.data = [
     //Awake
     [16, 15, 20, 12, 16, 12, 8]
   ];
+
   $scope.graph.labels = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
   $scope.graph.series = ['Awake'];
 
