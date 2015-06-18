@@ -1,8 +1,9 @@
 
-  <ion-header-bar class="bar-stable bar-secondary" align-title="center">
+  <ion-header-bar class="bar-light bar-secondary" align-title="center">
     <button class="button button-clear" ng-click="previousQuestion(question.model)" ng-hide="hidePreviousButton()">
       <i class="icon ion-chevron-left"></i>Back</button>
-    <h4 class="title" align-title="center">{{question.label}}</h4>
+    <h4 class="title" align-title="center">{{question.label}}</h4></ion-header-bar></br>  
+    <div style="height: 30px; width: {{(question.number-1)*11.11111}}%; transition: width 0.1s; background: #56A79C;">
   </ion-header-bar>
   
   <ion-content class="has-header">

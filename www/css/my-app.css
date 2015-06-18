@@ -5,6 +5,29 @@
   height: 110px;
 }
 
+progress::-webkit-progress-value { background: #56A79C; }
+
+progress {
+  color: #0063a6;
+  font-size: .6em;
+  line-height: 1.5em;
+  text-indent: .5em;
+  height: 1.8em;
+}
+
+ion-nav-back-button.white_colour {
+  color: white;
+}
+
+.bar-green {
+  background-color: #56A79C;
+  color: white;
+}
+
+canvas.graph {
+  color: #56A79C;
+}
+
 .tabbar a.active {
   color: #56A79C;
 }
@@ -29,6 +52,11 @@ i.icon.icon-prev-blue {
 }
 div.home_text {
   color: #808080;
+}
+
+.spinner svg {
+  width: 19% !important;
+  height: 85px !important;
 }
 
 .slider{
