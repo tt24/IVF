@@ -92,6 +92,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         templateUrl: 'templates/results.html'
       }
     }
+  })
+  
+   .state('tab.dash-information', {
+      url: '/dash/information',
+      views: {
+        'tab-dash': {
+        templateUrl: 'templates/information.html', 
+        controller: 'AboutCtrl'
+      }
+   }
   });
 
   // if none of the above states are matched, use this as the fallback
