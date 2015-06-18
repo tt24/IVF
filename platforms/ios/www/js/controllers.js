@@ -25,6 +25,35 @@ angular.module('starter.controllers', [])
   $scope.chat = Chats.get($stateParams.chatId);
 })
 
+.controller('CalcTabCtrl', function($scope) {
+  $scope.activeTabId=1;
+  $scope.setActiveTab=function(tabId) {
+    $scope.activeTabId=tabId;
+  };
+}) 
+
+.controller('GraphCtrl', function($scope) {
+  Chart.defaults.global.colours = [
+    { // light grey
+        fillColor: "rgba(220,220,220,0.2)",
+        strokeColor: "#6B5D79",
+        pointColor: "rgba(220,220,220,1)",
+        pointStrokeColor: "#6B5D79",
+        pointHighlightFill: "#6B5D79",
+        pointHighlightStroke: "rgba(220,220,220,0.8)"
+    }
+];
+  $scope.graph = {};
+  $scope.graph.data = [
+    //Awake
+    [16, 15, 20, 12, 16, 12, 8]
+  ];
+
+  $scope.graph.labels = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+  $scope.graph.series = ['Awake'];
+
+})
+
 .controller('SurveyController', function($scope, $ionicSlideBoxDelegate){
   
   //Hack to disable slidebox
@@ -79,9 +108,10 @@ angular.module('starter.controllers', [])
     
     $scope.answers = {};
   
-    $scope.questions = [
+$scope.questions = [
         {
-          label: "Woman's age",
+          number: 1,
+          label: "What is your age?",
           model: "age",
           options:[
             {text:"18-34",value:0}, {text:"35-37",value:1},
@@ -89,7 +119,8 @@ angular.module('starter.controllers', [])
             ]
         },
         {
-          label:"Trying for",
+          number: 2,
+          label:"For how long have you been trying?",
           model: "duration",
           options:[
             {text:"Less than 1 year",value:0}, {text:"1 year",value:1}, {text:"2 years",value:1}, {text:"3 years",value:1},
@@ -98,6 +129,7 @@ angular.module('starter.controllers', [])
             {text:"12 years",value:4}, {text:"More than 12 years",value:5}]
         },
         {
+          number: 3,
           label:"Own or donor eggs",
           model: "source",
           options:[
@@ -105,7 +137,8 @@ angular.module('starter.controllers', [])
             {text:"Donor eggs", value:1}]
         },
         {
-          label:"Cause",
+          number: 4,
+          label:"What is the cause of the problem?",
           model:"cause",
           options:[
             {text:"Unknown", value:0},
@@ -118,7 +151,8 @@ angular.module('starter.controllers', [])
             ]
         },
         {
-          label:"IVF Attempts",
+          number: 5,
+          label:"How many IVF attempts have you had?",
           model:"attempts",
           options:[
             {text:"First", value:0},
@@ -127,7 +161,8 @@ angular.module('starter.controllers', [])
           ]
         },
         {
-          label:"Unsuccesful Attempts",
+          number: 6,
+          label:"How many of them were unsuccesful?",
           model:"unsuccesful",
           options:[
             {text:"Zero", value:0},
@@ -139,6 +174,7 @@ angular.module('starter.controllers', [])
           ]
         },
         {
+          number: 7,
           label:"Pregnancy History",
           model:"history",
           options:[
@@ -151,6 +187,7 @@ angular.module('starter.controllers', [])
           ]
         },
         {
+          number: 8,
           label:"Medication",
           model:"medication",
           options:[
@@ -160,6 +197,7 @@ angular.module('starter.controllers', [])
           ]
         },
         {
+          number: 9,
           label:"Will ICSI be used?",
           model:"icsi",
           options:[
@@ -201,6 +239,8 @@ angular.module('starter.controllers', [])
         $ionicSlideBoxDelegate.slide(0);
       };
 })
+
+
 
 .controller('AccountCtrl', function($scope) {
   $scope.settings = {
