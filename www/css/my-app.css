@@ -16,12 +16,8 @@ progress {
 }
 
 .bar-green {
-  background-color: #56A79C;
-}
-
-
-.nav-bar-block, .bar {
-  background-color: inherit !important;
+  background-color: #56A79C !important;
+  color: white !important;
 }
 
 .tabbar a.active {
@@ -235,7 +231,6 @@ i.arrow_down {
 .list-block .item-title.high {
     color: #6B5D79;
 }
-
 /* instructions questionnaire */
 
 div.question {
