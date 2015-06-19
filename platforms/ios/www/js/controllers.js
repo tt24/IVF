@@ -21,6 +21,14 @@ angular.module('starter.controllers', [])
   }
 })
 
+.controller('AboutCtrl', function($scope) {
+  $scope.people = people;
+  
+  $scope.openNewBrowserWindow = function(url){
+    window.open(url, "_server", "location=yes");
+  };
+})
+
 .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
   $scope.chat = Chats.get($stateParams.chatId);
 })
@@ -31,30 +39,15 @@ angular.module('starter.controllers', [])
     $scope.activeTabId=tabId;
   };
 }) 
-
-.controller('GraphCtrl', function($scope) {
-  Chart.defaults.global.colours = [
-    { // light grey
-        fillColor: "rgba(220,220,220,0.2)",
-        strokeColor: "#6B5D79",
-        pointColor: "rgba(220,220,220,1)",
-        pointStrokeColor: "#6B5D79",
-        pointHighlightFill: "#6B5D79",
-        pointHighlightStroke: "rgba(220,220,220,0.8)"
-    }
-];
+.controller('GraphCtrl', function($scope, LocalStorage) {
+  var savedData = LocalStorage.getObject(saveKey);
+  
   $scope.graph = {};
-  $scope.graph.data = [
-    //Awake
-    [16, 15, 20, 12, 16, 12, 8]
-  ];
-
-  $scope.graph.labels = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-  $scope.graph.series = ['Awake'];
-
+  $scope.graph.data = [savedData.percentages];
+  $scope.graph.labels = savedData.dates;
 })
 
-.controller('SurveyController', function($scope, $ionicSlideBoxDelegate){
+.controller('SurveyController', function($scope, $ionicSlideBoxDelegate, LocalStorage){
   
   //Hack to disable slidebox
   $scope.disableSwipe = function(){
@@ -231,12 +224,57 @@ $scope.questions = [
         prob = Math.round(prob * 10) / 10;
         
         $scope.percentage = prob;
+        $scope.saveData(prob);
 
+      };
+      
+      var getCurrentDate = function(){
+         var today = new Date();
+          var dd = today.getDate();
+          var mm = today.getMonth()+1;  //January is 0
+          var yyyy = today.getFullYear();
+          
+          var date = '';
+          
+          if(dd < 10) date += '0';
+          date += dd + '/';
+          if(mm < 10) date += '0' ;
+          date += mm + '/';
+          date += yyyy;   
+          
+          return date;     
+      };
+      
+      $scope.saveData = function(percentage){
+
+        //Loading previous saves if they exist
+        var saveJson = LocalStorage.getObject(saveKey);
+        
+        var currentDate = getCurrentDate();
+        
+        //Handilng first-time users, creating key-value pair
+        if(Object.keys(saveJson).length === 0){
+          saveJson = {
+            dates:[currentDate],
+            percentages:[percentage]
+          };
+        }
+        //For already existing saves just push the arrays
+        else{
+          saveJson.dates.push(currentDate);
+          saveJson.percentages.push(percentage);
+        }
+        LocalStorage.setObject(saveKey, saveJson);
+        $scope.percentage = LocalStorage.getObject(saveKey);
       };
       
       $scope.restartTest = function(){
         $scope.answers = {};
         $ionicSlideBoxDelegate.slide(0);
+      };
+      
+      $scope.resetSave = function(){
+        LocalStorage.setObject(saveKey, {dates:[], percentages:[]});
       };
 })
 
@@ -247,3 +285,9 @@ $scope.questions = [
     enableFriends: true
   };
 });
+
+var people = [
+    { name: 'Dr Tom Kelsey', university:'St Andrews University' ,about:'Dr Tom Kelsey is a Lecturer at the University of Saint Andrews, and an international expert in mathematical medels for biomedicine.', role:'Tom, together with his colleague Dr Chris Jeferson, were instrumental in developing the online calculator and smartphone apps', link: 'http://tom.host.cs.st-andrews.ac.uk', img:'img/people/Tom.jpg'},
+    { name:'Professor Scott Nelson', university:'Glasgow University', about:'Professor Scott Nelson is the Muirhead Professor of Obstetrics and Gyneacology at the University of Glasgow and an international expert in IVF.',role:'His research aims to understand and improve the health of women and their offspring throughout their reproductive life span. He is directly involved in looking after patients in Scotland\'s two largest and most succesful IVF units.', link:'http://www.bing.co.uk', img:'img/people/ScottNelson.jpg'},
+    {name:'Professor Debbie Lawlor', university:'Bristol University', about:'Professor Debbie Lawlor is the Professor of Epidemiology at Bristol University and an international expert in translational research.', role:'Debbie\'s research is underpinned by her interest in understanding how biological (including genetic), social and environmental exposures from across the life course affect the risk of chronic disease in adulthood and how, therefore, appropriate prevention of these conditions can be achieved.',link:'http://www.google.co.uk', img:'img/people/DebbieLawlor.jpg'}
+];
