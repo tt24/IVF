@@ -47,7 +47,7 @@ angular.module('starter.controllers', [])
   $scope.graph.labels = savedData.dates;
 })
 
-.controller('SurveyController', function($scope, $ionicSlideBoxDelegate, LocalStorage){
+.controller('SurveyController', function($scope, $ionicSlideBoxDelegate, LocalStorage, $state){
   
   //Hack to disable slidebox
   $scope.disableSwipe = function(){
@@ -101,7 +101,106 @@ angular.module('starter.controllers', [])
     
     $scope.answers = {};
   
-$scope.questions = [
+$scope.questions = questions;
+      
+      //The contents of this function were copied from http://http://www.ivfpredict.com/js/ivfpredict.js
+      $scope.calculateResults = function(){
+        $scope.percentage = 5;
+        var ans = $scope.answers;
+        
+        
+        var yup = 
+                  $scope.t1[ans["age"].value][ans["duration"].value] + 
+                  $scope.t2[ans["age"].value][ans["source"].value] +
+                  $scope.t3[ans["icsi"].value][ans["cause"].value] + 
+                  $scope.t4[ans["icsi"].value][ans["attempts"].value] +
+                  $scope.t5[ans["unsuccesful"].value] + 
+                  $scope.t6[ans["history"].value] + 
+                  $scope.t7[ans["medication"].value];
+        
+        var y = -1.1774;
+     
+        y = y + yup;
+    
+        var prob = (100 * Math.exp(y))/(1 + Math.exp(y));
+     
+        prob = Math.round(prob * 10) / 10;
+        
+        $scope.percentage = prob;
+        $scope.saveData(prob, $scope.answers);
+
+      };
+      
+      var getCurrentDate = function(){
+         var today = new Date();
+          var dd = today.getDate();
+          var mm = today.getMonth()+1;  //January is 0
+          var yyyy = today.getFullYear();
+          
+          var date = '';
+          
+          if(dd < 10) date += '0';
+          date += dd + '/';
+          if(mm < 10) date += '0' ;
+          date += mm + '/';
+          date += yyyy;   
+          
+          return date;     
+      };
+      
+      $scope.saveData = function(percentage, dataObj){
+        //Loading previous saves if they exist
+        var saveJson = LocalStorage.getObject(saveKey);
+        
+        var currentDate = getCurrentDate();
+        
+        //Handilng first-time users, creating key-value pair
+        if(Object.keys(saveJson).length === 0){
+          saveJson = {
+            dates:[currentDate],
+            percentages:[percentage],
+            answers:[dataObj]
+          };
+        }
+        //For already existing saves just push the arrays
+        else{
+          saveJson.dates.push(currentDate);
+          saveJson.percentages.push(percentage);
+          saveJson.answers.push(dataObj);
+        }
+        LocalStorage.setObject(saveKey, saveJson);
+        $scope.percentage = LocalStorage.getObject(saveKey);
+      };
+      
+      $scope.restartTest = function(){
+        $scope.answers = {};
+        $ionicSlideBoxDelegate.slide(0);
+      };
+      
+      $scope.resetSave = function(){
+        LocalStorage.setObject(saveKey, {dates:[], percentages:[], answers:[]});
+      };
+      
+      $scope.goToMyResults = function(){
+        $state.go("tab.dash-results");
+      };
+})
+
+
+
+.controller('AccountCtrl', function($scope) {
+  $scope.settings = {
+    enableFriends: true
+  };
+});
+
+var people = [
+    { name: 'Dr Tom Kelsey', university:'St Andrews University' ,about:'Dr Tom Kelsey is a Lecturer at the University of Saint Andrews, and an international expert in mathematical medels for biomedicine.', role:'Tom, together with his colleague Dr Chris Jeferson, were instrumental in developing the online calculator and smartphone apps', link: 'http://tom.host.cs.st-andrews.ac.uk', img:'img/people/Tom.jpg'},
+    { name:'Professor Scott Nelson', university:'Glasgow University', about:'Professor Scott Nelson is the Muirhead Professor of Obstetrics and Gyneacology at the University of Glasgow and an international expert in IVF.',role:'His research aims to understand and improve the health of women and their offspring throughout their reproductive life span. He is directly involved in looking after patients in Scotland\'s two largest and most succesful IVF units.', link:'http://www.bing.co.uk', img:'img/people/ScottNelson.jpg'},
+    {name:'Professor Debbie Lawlor', university:'Bristol University', about:'Professor Debbie Lawlor is the Professor of Epidemiology at Bristol University and an international expert in translational research.', role:'Debbie\'s research is underpinned by her interest in understanding how biological (including genetic), social and environmental exposures from across the life course affect the risk of chronic disease in adulthood and how, therefore, appropriate prevention of these conditions can be achieved.',link:'http://www.google.co.uk', img:'img/people/DebbieLawlor.jpg'}
+];
+
+var questions = [
         {
           number: 1,
           label: "What is your age?",
@@ -123,7 +222,7 @@ $scope.questions = [
         },
         {
           number: 3,
-          label:"Own or donor eggs",
+          label:"Are you tying to use your own or donor eggs?",
           model: "source",
           options:[
             {text:"Own eggs", value:0},
@@ -168,7 +267,7 @@ $scope.questions = [
         },
         {
           number: 7,
-          label:"Pregnancy History",
+          label:"Please choose your fitting pregnancy history.",
           model:"history",
           options:[
             {text:"No IVF, no pregnancy", value:0},
@@ -181,7 +280,7 @@ $scope.questions = [
         },
         {
           number: 8,
-          label:"Medication",
+          label:"What sort of medication are you taking?",
           model:"medication",
           options:[
             {text:"Antioestrogen", value:0},
@@ -199,95 +298,3 @@ $scope.questions = [
           ]
         }
       ];
-      
-      //The contents of this function were copied from http://http://www.ivfpredict.com/js/ivfpredict.js
-      $scope.calculateResults = function(){
-        $scope.percentage = 5;
-        var ans = $scope.answers;
-        
-        
-        var yup = 
-                  $scope.t1[ans["age"]][ans["duration"]] + 
-                  $scope.t2[ans["age"]][ans["source"]] +
-                  $scope.t3[ans["icsi"]][ans["cause"]] + 
-                  $scope.t4[ans["icsi"]][ans["attempts"]] +
-                  $scope.t5[ans["unsuccesful"]] + 
-                  $scope.t6[ans["history"]] + 
-                  $scope.t7[ans["medication"]];
-        
-        var y = -1.1774;
-     
-        y = y + yup;
-    
-        var prob = (100 * Math.exp(y))/(1 + Math.exp(y));
-     
-        prob = Math.round(prob * 10) / 10;
-        
-        $scope.percentage = prob;
-        $scope.saveData(prob);
-
-      };
-      
-      var getCurrentDate = function(){
-         var today = new Date();
-          var dd = today.getDate();
-          var mm = today.getMonth()+1;  //January is 0
-          var yyyy = today.getFullYear();
-          
-          var date = '';
-          
-          if(dd < 10) date += '0';
-          date += dd + '/';
-          if(mm < 10) date += '0' ;
-          date += mm + '/';
-          date += yyyy;   
-          
-          return date;     
-      };
-      
-      $scope.saveData = function(percentage){
-
-        //Loading previous saves if they exist
-        var saveJson = LocalStorage.getObject(saveKey);
-        
-        var currentDate = getCurrentDate();
-        
-        //Handilng first-time users, creating key-value pair
-        if(Object.keys(saveJson).length === 0){
-          saveJson = {
-            dates:[currentDate],
-            percentages:[percentage]
-          };
-        }
-        //For already existing saves just push the arrays
-        else{
-          saveJson.dates.push(currentDate);
-          saveJson.percentages.push(percentage);
-        }
-        LocalStorage.setObject(saveKey, saveJson);
-        $scope.percentage = LocalStorage.getObject(saveKey);
-      };
-      
-      $scope.restartTest = function(){
-        $scope.answers = {};
-        $ionicSlideBoxDelegate.slide(0);
-      };
-      
-      $scope.resetSave = function(){
-        LocalStorage.setObject(saveKey, {dates:[], percentages:[]});
-      };
-})
-
-
-
-.controller('AccountCtrl', function($scope) {
-  $scope.settings = {
-    enableFriends: true
-  };
-});
-
-var people = [
-    { name: 'Dr Tom Kelsey', university:'St Andrews University' ,about:'Dr Tom Kelsey is a Lecturer at the University of Saint Andrews, and an international expert in mathematical medels for biomedicine.', role:'Tom, together with his colleague Dr Chris Jeferson, were instrumental in developing the online calculator and smartphone apps', link: 'http://tom.host.cs.st-andrews.ac.uk', img:'img/people/Tom.jpg'},
-    { name:'Professor Scott Nelson', university:'Glasgow University', about:'Professor Scott Nelson is the Muirhead Professor of Obstetrics and Gyneacology at the University of Glasgow and an international expert in IVF.',role:'His research aims to understand and improve the health of women and their offspring throughout their reproductive life span. He is directly involved in looking after patients in Scotland\'s two largest and most succesful IVF units.', link:'http://www.bing.co.uk', img:'img/people/ScottNelson.jpg'},
-    {name:'Professor Debbie Lawlor', university:'Bristol University', about:'Professor Debbie Lawlor is the Professor of Epidemiology at Bristol University and an international expert in translational research.', role:'Debbie\'s research is underpinned by her interest in understanding how biological (including genetic), social and environmental exposures from across the life course affect the risk of chronic disease in adulthood and how, therefore, appropriate prevention of these conditions can be achieved.',link:'http://www.google.co.uk', img:'img/people/DebbieLawlor.jpg'}
-];
