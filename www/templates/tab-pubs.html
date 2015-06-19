@@ -1,103 +1,139 @@
 <ion-view title="Publications">
-    <ion-slide-box>
-      <ion-slide>
+
+  <ion-slide-box>
+    <ion-slide>
       <ion-scroll class="has-header has-subheader">
-      <div style="height:100%">
+        <div style="height:100%">
 
-            <h2><strong>Publications Overview</strong></h2>
-
-
-            <div class="card">
-              <h5><em>Professor Scott Nelson, Professor Debbie Lawlor and Dr Tom Kelsey have published more than 500 research papers. You can download some of these for free.</em></h5>
-            </div>
-
-            <div class="card">
-              <p class="extra3">Several of these publications are directly relevant to IVF, ensuring that patients get individualised treatment, optimal outcomes and maximal chances of a live birth. These include: </p>
+          <h2><strong>{{ titles[0] }}</strong></h2>
 
 
-              <div class="list list-inset">
-                <div class="item">
-                  <a href="http://www.plosone.org/article/info:doi/10.1371/journal.pone.0008772" target="_new">Calculating the rate of decline in your ovarian reserve 
-                from birth </a>
-                </div>
-                <div class="item">
-                  <a href="http://humrep.oxfordjournals.org/content/24/4/867.long" target="_new">Using AMH to indivualise treatment strategies</a>
-                </div>
+          <div class="card">
+            <h5>
+              <em>
+                {{ overviewText[0] }}
+              </em>
+            </h5>
+          </div>
 
-                <div class="item item-divider">
-                  Use of AMH as a marker of your ovarian reserve
-                </div>
-                <div class="item">
-                  <a href="http://humrep.oxfordjournals.org/content/22/9/2414.long" target="_new">How  AMH can predict live birth</a>
-                </div>
-                <div class="item">
-                  <a href="http://www.ncbi.nlm.nih.gov/pubmed/20869051" target="_new">Interpreting AMH for your age </a>
-                </div>
+          <div class="card">
+            <p class="extra3">
+              {{ overviewText[1] }}
+            </p>
+
+            <div class="list list-inset">
+              <div class="item">
+                <a href="{{ overviewLinks[0][0].link }}" target="_new">
+                  {{ overviewLinks[0][0].text }}
+                </a>
               </div>
 
-            </div>
-            &nbsp&nbsp&nbsp<a href="http://www.ncbi.nlm.nih.gov/PubMed/" target="_new" class="link link-indent"><span><span>Find more papers by the authors</span></span></a>
+              <div class="item">
+                <a href="{{ overviewLinks[0][1].link }}" target="_new">
+                  {{ overviewLinks[0][1].text }}
+                </a>
+              </div>
 
-            </div>
-            </ion-scroll>
+              <div class="item item-divider">
+                {{ overviewText[2] }}
+              </div>
 
-      </ion-slide>
+              <div class="item">
+                <a href="{{ overviewLinks[1][0].link }}" target="_new">
+                  {{ overviewLinks[1][0].text }}
+                </a>
+              </div>
 
-
-      <ion-slide>
-      <ion-scroll class="has-header">
-      <div style="height:100%">
-
-            <h2><strong>PLOS Medicine paper</strong></h2>
-
-            <div class="card">
-              <div class="item item-text-wrap">
-                <h2>The full PLOS Medicine paper that IVFpredict was based is now available for free download.</h2>
-                <ul class="list-2">
-                  <li class="link"><a href="http://www.plosmedicine.org/article/info%3Adoi%2F10.1371%2Fjournal.pmed.1000386#s6" target="_new">Download now</a></li>
-                </ul>
-                <a href="http://www.plosmedicine.org/home.action" target="_new" class="link"><span><span>more info</span></span></a>
+              <div class="item">
+                <a href="{{ overviewLinks[1][1].link }}" target="_new">
+                  {{ overviewLinks[1][1].text }}
+                </a>
               </div>
             </div>
 
+          </div>
+          &nbsp&nbsp&nbsp
+          <a href="{{ overviewLinks[2][0].link }}" target="_new" class="link link-indent">
+            <span>
+              {{ overviewLinks[2][0].text }}
+            </span>
+          </a>
 
-            <div class="card">
-              <div class="item item-text-wrap">
-                <strong><a href="http://www.plosmedicine.org">PLOS Medicine</a></strong>
-                <br /> PLOS Medicine is the leading open-access medical journal, providing an innovative and influential venue for research and comment on the major challenges to human health worldwide.
-                <br />
-                <strong>Freely available<a href="#"></a></strong>
-                <br /> Making the world's scientific and medical literature a freely available public resource.
-                <br />
-                <strong>Outstanding research<a href="#"></a></strong>
-                <br /> Outstanding primary research articles in all areas of medicine; from clinically directed basic science to epidemiology and clinical trials.
-                <br/>
-              </div>
-            </div>
-
-      </div>
+        </div>
       </ion-scroll>
-      </ion-slide>
+    </ion-slide>
 
 
-      <ion-slide>
+    <ion-slide>
+      <ion-scroll class="has-header">
+        <div style="height:100%">
+
+          <h2><strong>{{ titles[1] }}</strong></h2>
+
+          <div class="card">
+            <div class="item item-text-wrap">
+              <h2>
+                {{ paperDownloadText }}
+              </h2>
+              <ul class="list-2">
+                <li class="link">
+                  <a href="{{ paperDownloadLink }}" target="_new">
+                    Download Now
+                  </a>
+                </li>
+              </ul>
+              <a href="{{ paperMoreInfoLink }}" target="_new" class="link">
+                <span>More Info</span>
+              </a>
+            </div>
+          </div>
+
+
+          <div class="card">
+            <div class="item item-text-wrap">
+              <strong><a href="{{ paperPLOSLink }}">{{paperPLOSTitles[0]}}</a></strong>
+              <br /> 
+              {{ paperPLOSText[0] }}
+              <br />
+              <strong>{{paperPLOSTitles[1]}}<a href="#"></a></strong>
+              <br />
+              {{ paperPLOSText[1] }}
+              <br />
+              <strong>{{paperPLOSTitles[2]}}<a href="#"></a></strong>
+              <br /> 
+              {{ paperPLOSText[2] }}
+              <br/>
+            </div>
+          </div>
+
+        </div>
+      </ion-scroll>
+    </ion-slide>
+
+
+    <ion-slide>
       <ion-scroll class="has-header" style="height:100%">
-      <div style="height:100%">
-            <h2><strong>Ongoing Research </strong></h2>
-            <div class="list card">
-              <div class="item item-body">
-                <img src="img/research.jpg" class="full-image" />
-              </div>
+        <div style="height:100%">
+          <h2><strong>{{ titles[2] }}</strong></h2>
+          <div class="list card">
+            <div class="item item-body">
+              <img src="{{ researchPicture }}" class="full-image" />
+            </div>
 
-              <div class="item item-body">
-                <h4>The team have several ongoing projects trying to improve IVF live birth success rates and develop novel reproductive lifespan prediction models</h4>
-              </div>
-              <div class="item item-body">
-                <h4>If you would like to test IVFpredict on your own clinic data we would love to hear from you.<a href="http://ivfpredict.com/index-4.html" target="_new">Contact us</a></h4>
-              </div>
+            <div class="item item-body">
+              <h4>{{ researchText[0] }}</h4>
             </div>
+            <div class="item item-body">
+              <h4> 
+               {{ researchText[1] }}
+                <a href="{{ contactLink }}" target="_new">
+                  Contact us
+                </a>
+              </h4>
             </div>
-            </ion-scroll>
-      </ion-slide>
-    </ion-slide-box>
+          </div>
+        </div>
+      </ion-scroll>
+    </ion-slide>
+  </ion-slide-box>
 </ion-view>
