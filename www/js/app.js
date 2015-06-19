@@ -147,7 +147,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         
       $scope.setAnswer = function(id, value, text){
         $scope.answers[id] = {"text": text, "value":value};
-        $scope.nextQuestion();     
+        $scope.nextQuestion();    
+        if(Object.keys($scope.answers).length === $scope.questions.length){
+          $scope.calculateResults();
+        } 
       };
     },
     controllerAs:'survey'
