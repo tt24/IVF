@@ -1,5 +1,10 @@
 // Ionic Starter App
 
+//global variables
+
+//Key for accessing the datapoints for the graph
+ var saveKey = 'percentSave';
+
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
@@ -75,7 +80,14 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       }
     }
   })
-
+  .state('tab.pubs', {
+    url: '/publications',
+    views:{
+      'tab-pubs':{
+        templateUrl: 'templates/tab-pubs.html'
+      }
+    }
+  })
   .state('tab.account-privacy', {
     url: '/account/privacy',
     views: {
@@ -134,13 +146,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         
       $scope.setAnswer = function(id, value){
         $scope.answers[id] = value;
-        $scope.nextQuestion();  
-        if(Object.keys($scope.answers).length == $scope.questions.length){
-          $scope.calculateResults();
-        }      
+        $scope.nextQuestion();     
       };
     },
     controllerAs:'survey'
     
   };
 });
+
+

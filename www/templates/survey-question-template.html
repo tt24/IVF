@@ -7,5 +7,5 @@
   </ion-header-bar>
   
   <ion-content class="has-header">
-    <button class="button button-full button-clear" ng-repeat="option in question.options" ng-click="setAnswer(question.model, option.value)">{{option.text}}</button>
+    <button class="button button-full button-clear" ng-repeat="option in question.options" ng-click="setAnswer(question.model, option.value, option.text)">{{option.text}}</button>
   </ion-content>

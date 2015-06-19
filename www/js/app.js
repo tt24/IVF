@@ -144,8 +144,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         return $ionicSlideBoxDelegate.currentIndex() == ($ionicSlideBoxDelegate.slidesCount() - 2);
       };    
         
-      $scope.setAnswer = function(id, value){
-        $scope.answers[id] = value;
+      $scope.setAnswer = function(id, value, text){
+        $scope.answers[id] = {"text": text, "value":value};
         $scope.nextQuestion();     
       };
     },
