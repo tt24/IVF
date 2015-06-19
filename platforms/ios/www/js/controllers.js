@@ -207,13 +207,13 @@ $scope.questions = [
         
         
         var yup = 
-                  $scope.t1[ans["age"]][ans["duration"]] + 
-                  $scope.t2[ans["age"]][ans["source"]] +
-                  $scope.t3[ans["icsi"]][ans["cause"]] + 
-                  $scope.t4[ans["icsi"]][ans["attempts"]] +
-                  $scope.t5[ans["unsuccesful"]] + 
-                  $scope.t6[ans["history"]] + 
-                  $scope.t7[ans["medication"]];
+                  $scope.t1[ans["age"].value][ans["duration"].value] + 
+                  $scope.t2[ans["age"].value][ans["source"].value] +
+                  $scope.t3[ans["icsi"].value][ans["cause"].value] + 
+                  $scope.t4[ans["icsi"].value][ans["attempts"].value] +
+                  $scope.t5[ans["unsuccesful"].value] + 
+                  $scope.t6[ans["history"].value] + 
+                  $scope.t7[ans["medication"].value];
         
         var y = -1.1774;
      
@@ -224,7 +224,7 @@ $scope.questions = [
         prob = Math.round(prob * 10) / 10;
         
         $scope.percentage = prob;
-        $scope.saveData(prob);
+        $scope.saveData(prob, $scope.answers);
 
       };
       
@@ -245,8 +245,7 @@ $scope.questions = [
           return date;     
       };
       
-      $scope.saveData = function(percentage){
-
+      $scope.saveData = function(percentage, dataObj){
         //Loading previous saves if they exist
         var saveJson = LocalStorage.getObject(saveKey);
         
@@ -256,13 +255,15 @@ $scope.questions = [
         if(Object.keys(saveJson).length === 0){
           saveJson = {
             dates:[currentDate],
-            percentages:[percentage]
+            percentages:[percentage],
+            answers:[dataObj]
           };
         }
         //For already existing saves just push the arrays
         else{
           saveJson.dates.push(currentDate);
           saveJson.percentages.push(percentage);
+          saveJson.answers.push(dataObj);
         }
         LocalStorage.setObject(saveKey, saveJson);
         $scope.percentage = LocalStorage.getObject(saveKey);
@@ -274,7 +275,7 @@ $scope.questions = [
       };
       
       $scope.resetSave = function(){
-        LocalStorage.setObject(saveKey, {dates:[], percentages:[]});
+        LocalStorage.setObject(saveKey, {dates:[], percentages:[], answers:[]});
       };
 })
 

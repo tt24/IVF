@@ -1,1 +1,8 @@
 /* Empty. Add your own CSS if you like */
+.platform-android .bar-subheader.has-tabs-top{
+top:93px !important;
+}
+
+.platform-android .has-subheader.has-tabs-top{
+top:137px;
+}

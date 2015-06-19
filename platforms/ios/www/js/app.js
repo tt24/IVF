@@ -144,8 +144,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         return $ionicSlideBoxDelegate.currentIndex() == ($ionicSlideBoxDelegate.slidesCount() - 2);
       };    
         
-      $scope.setAnswer = function(id, value){
-        $scope.answers[id] = value;
+      $scope.setAnswer = function(id, value, text){
+        $scope.answers[id] = {"text": text, "value":value};
         $scope.nextQuestion();     
       };
     },
@@ -153,5 +153,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     
   };
 });
+
+Chart.defaults.global.colours = [
+    { // light grey
+        fillColor: "rgba(220,220,220,0.2)",
+        strokeColor: "#6B5D79",
+        pointColor: "rgba(220,220,220,1)",
+        pointStrokeColor: "#6B5D79",
+        pointHighlightFill: "#6B5D79",
+        pointHighlightStroke: "#6B5D79"
+    }
+];
 
 

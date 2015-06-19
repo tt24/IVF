@@ -39,12 +39,15 @@ angular.module('starter.controllers', [])
     $scope.activeTabId=tabId;
   };
 }) 
+
 .controller('GraphCtrl', function($scope, LocalStorage) {
   var savedData = LocalStorage.getObject(saveKey);
   
   $scope.graph = {};
   $scope.graph.data = [savedData.percentages];
   $scope.graph.labels = savedData.dates;
+
+  $scope.answers = savedData.answers;
 })
 
 .controller('SurveyController', function($scope, $ionicSlideBoxDelegate, LocalStorage){

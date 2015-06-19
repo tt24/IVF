@@ -3,6 +3,59 @@
   <br><br>
   <div ng-controller="GraphCtrl" >
     <canvas id="bar" class="chart chart-line graph" data="graph.data" labels="graph.labels" series='graph.series' height="100%"></canvas>
-    </div>
+    <div class="row">
+    <div class="col col-50">
+    <div class="card" ng-repeat="answer in answers" ng-if="$index%2==0">
+  <div class="item item-text-wrap" > <span style="color: #6B5D79;">Date: </span> {{graph.labels[$index]}}
+  </div>
+    <div class="item item-text-wrap" > <span style="color: #6B5D79;">Percentage: </span> {{graph.data[0][$index]}}%
+  </div>
+  <div class="item item-text-wrap" > <span style="color: #6B5D79;">Age: </span> {{answer.age.text}}
+  </div>
+    <div class="item item-text-wrap" > <span style="color: #6B5D79;">Years trying:</span> {{answer.duration.text}}
+  </div>
+  <div class="item item-text-wrap" > {{answer.source.text}}
+  </div>
+    <div class="item item-text-wrap" > <span style="color: #6B5D79;">Cause:</span> {{answer.cause.text}}
+  </div>
+  <div class="item item-text-wrap" > <span style="color: #6B5D79;">Attempts:</span> {{answer.attempts.text}}
+  </div>
+    <div class="item item-text-wrap" > <span style="color: #6B5D79;">Unsuccessful attempts:</span> {{answer.unsuccesful.text}}
+  </div>
+      <div class="item item-text-wrap" > <span style="color: #6B5D79;">History:</span> {{answer.history.text}}
+  </div>
+      <div class="item item-text-wrap" > <span style="color: #6B5D79;">Medication:</span> {{answer.medication.text}}
+  </div>
+   <div class="item item-text-wrap" > <span style="color: #6B5D79;">ICSI:</span> {{answer.icsi.text}}
+  </div>
+</div>
+</div>
+<div class="col col-50">
+    <div class="card" ng-repeat="answer in answers" ng-if="$index%2==1">
+    	  <div class="item item-text-wrap" > <span style="color: #6B5D79;">Date: </span> {{graph.labels[$index]}}
+  </div>
+    <div class="item item-text-wrap" > <span style="color: #6B5D79;">Percentage: </span> {{graph.data[0][$index]}}%
+  </div>
+  <div class="item item-text-wrap" > <span style="color: #6B5D79;">Age: </span> {{answer.age.text}}
+  </div>
+    <div class="item item-text-wrap" > <span style="color: #6B5D79;">Years trying:</span> {{answer.duration.text}}
+  </div>
+  <div class="item item-text-wrap" > {{answer.source.text}}
+  </div>
+    <div class="item item-text-wrap" > <span style="color: #6B5D79;">Cause:</span> {{answer.cause.text}}
+  </div>
+  <div class="item item-text-wrap" > <span style="color: #6B5D79;">Attempts:</span> {{answer.attempts.text}}
+  </div>
+    <div class="item item-text-wrap" > <span style="color: #6B5D79;">Unsuccessful attempts:</span> {{answer.unsuccesful.text}}
+  </div>
+      <div class="item item-text-wrap" > <span style="color: #6B5D79;">History:</span> {{answer.history.text}}
+  </div>
+      <div class="item item-text-wrap" > <span style="color: #6B5D79;">Medication:</span> {{answer.medication.text}}
+  </div>
+   <div class="item item-text-wrap" > <span style="color: #6B5D79;">ICSI:</span> {{answer.icsi.text}}
+  </div>
+</div></div>
+</div>
+</div>
   </ion-content>
 </ion-view>
