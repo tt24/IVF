@@ -3,6 +3,7 @@ display percentage not json
 change splash screen
 test on watch
 about page in the settings
+add extra information to the calculator questions
 
 
 
