@@ -283,6 +283,57 @@ $scope.questions = [
 })
 
 
+.controller('pubsCtrl', function($scope) {
+  $scope.titles = [
+    'Publications Overview',
+    'PLOS Medicine Paper',
+    'Ongoing Research'];
+
+   $scope.overviewText = [
+    'Professor Scott Nelson, Professor Debbie Lawlor and Dr Tom Kelsey have published more than 500 research papers. You can download some of these for free.',
+    'Several of these publications are directly relevant to IVF, ensuring that patients get individualised treatment, optimal outcomes and maximal chances of a live birth. These include:',
+    'Use of AMH as a marker of your ovarian reserve'
+   ];
+
+   $scope.overviewLinks = [[
+    { link: 'http://www.plosone.org/article/info:doi/10.1371/journal.pone.0008772',
+      text: 'Calculating the rate of decline in your ovarian reserve from birth' },
+    { link: 'http://humrep.oxfordjournals.org/content/24/4/867.long',
+      text: 'Using AMH to indivualise treatment strategies' }
+   ],
+   [
+    { link: 'http://humrep.oxfordjournals.org/content/22/9/2414.long',
+      text: 'How AMH can predict live birth' },
+    { link: 'http://www.ncbi.nlm.nih.gov/pubmed/20869051',
+      text: 'Interpreting AMH for your age' }
+   ],
+   [
+    { link: 'http://www.ncbi.nlm.nih.gov/PubMed/',
+      text: 'Find more papers by the authors'
+    }]];
+
+    $scope.paperDownloadText = 'The full PLOS Medicine paper that IVFpredict was based is now available for free download.';
+
+    $scope.paperDownloadLink = 'http://www.plosmedicine.org/article/info%3Adoi%2F10.1371%2Fjournal.pmed.1000386#s6';
+
+    $scope.paperMoreInfoLink = 'http://www.plosmedicine.org/home.action';
+
+    $scope.paperPLOSLink = 'http://www.plosmedicine.org';
+
+    $scope.paperPLOSTitles = ['PLOS Medicine', 'Freely Available', 'Outside Research'];
+
+    $scope.paperPLOSText = ['PLOS Medicine is the leading open-access medical journal, providing an innovative and influential venue for research and comment on the major challenges to human health worldwide.','Making the world\'s scientific and medical literature a freely available public resource.','Outstanding primary research articles in all areas of medicine; from clinically directed basic science to epidemiology and clinical trials.'];
+
+    $scope.researchPicture = 'img/research.jpg';
+
+    $scope.researchText = [
+      'The team have several ongoing projects trying to improve IVF live birth success rates and develop novel reproductive lifespan prediction models',
+      ' If you would like to test IVFpredict on your own clinic data we would love to hear from you.'
+    ];
+
+    $scope.contactLink = 'http://ivfpredict.com/index-4.html';
+
+})
 
 .controller('AccountCtrl', function($scope) {
   $scope.settings = {

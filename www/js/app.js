@@ -84,7 +84,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     url: '/publications',
     views:{
       'tab-pubs':{
-        templateUrl: 'templates/tab-pubs.html'
+        templateUrl: 'templates/tab-pubs.html',
+        controller: 'pubsCtrl'
       }
     }
   })
