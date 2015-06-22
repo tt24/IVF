@@ -1,6 +1,6 @@
 <ion-view view-title="Calculator">
       <ion-content ng-controller="SurveyController as surveyCtrl" scroll="false" class="has-header has-subheader">
-        <form name="surveyForm" ng-submit="calculateResults()">
+        <form name="surveyForm">
         <ion-slide-box show-pager="false" ng-init="disableSwipe()">
           <ion-slide ng-repeat="question in questions">
             <survey-question></survey-question>
@@ -12,6 +12,7 @@
             </p>
             <button class="button button-block" ng-click="restartTest()">Redo Test</button>
             <button class="button button-block" ng-click="resetSave()">Reset Save</button>
+            <button class="button button-block" ng-click="goToMyResults()">See My Results</button>
           </ion-slide>
         </ion-slide-box>
         </form>
