@@ -8,7 +8,7 @@
           <ion-slide>
             <h2>Results</h2>
             <p>
-              Percentage: {{percentage}}%
+              Percentage: {{percentage.percentages[getLength()-1]}}%
             </p>
             <button class="button button-block" ng-click="restartTest()">Redo Test</button>
             <button class="button button-block" ng-click="resetSave()">Reset Save</button>

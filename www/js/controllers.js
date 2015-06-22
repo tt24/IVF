@@ -183,6 +183,11 @@ $scope.questions = questions;
       $scope.resetSave = function(){
         LocalStorage.setObject(saveKey, {dates:[], percentages:[], answers:[]});
       };
+
+      $scope.getLength = function() {
+        var savedData = LocalStorage.getObject(saveKey);
+        return savedData.percentages.length;
+      }
       
       $scope.goToMyResults = function(){
         $state.go("tab.dash-results");
