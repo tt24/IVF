@@ -1,0 +1,13 @@
+todo:
+display percentage not json
+change splash screen
+test on watch
+about page in the settings
+
+
+
+
+
+maybe:
+make results scroll
+add a back button to the results page (when reached from end of calculator)
