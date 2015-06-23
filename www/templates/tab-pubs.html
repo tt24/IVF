@@ -1,25 +1,21 @@
 <ion-view title="Publications">
   <ion-slide-box>
     <ion-slide>
-      <ion-content class="has-header has-subheader">
+      <ion-content class="has-header " ng-class="{'has-subheader':device.platform !== 'Android'}">
         <div style="height:100%">
 
           <h2><strong>{{ titles[0] }}</strong></h2>
 
           <div class="card">
-            <h2><strong>{{ titles[0] }}</strong></h2>
-            <h5>
-              <em>
-                {{ overviewText[0] }}
-              </em>
-            </h5>
+<div class="item item-divider">
+                <pre>{{ overviewText[0] }} </pre>
+</div>
           </div>
 
           <div class="card">
-            <p class="extra3">
-              {{ overviewText[1] }}
-            </p>
-
+          <div class="item item-divider">
+              <pre>{{ overviewText[1] }}</pre>
+          </div>
             <div class="list list-inset">
               <div class="item">
                 <pre><a href="{{ overviewLinks[0][0].link }}" target="_new">
@@ -34,7 +30,7 @@
               </div>
 
               <div class="item item-divider">
-                {{ overviewText[2] }}
+                 <pre>{{ overviewText[2] }}</pre>
               </div>
 
               <div class="item">
@@ -51,20 +47,24 @@
             </div>
 
           </div>
-          &nbsp&nbsp&nbsp
-          <a href="{{ overviewLinks[2][0].link }}" target="_new" class="link link-indent">
+          <div class="list list-inset">
+
+    <div class="item">
+      <a href="{{ overviewLinks[2][0].link }}" target="_new" class="link link-indent">
             <span>
               {{ overviewLinks[2][0].text }}
             </span>
           </a>
+    </div>
 
+</div>
         </div>
       </ion-content>
     </ion-slide>
 
 
     <ion-slide>
-      <ion-content class="has-header has-subheader">
+      <ion-content class="has-header" ng-class="{'has-subheader':device.platform !== 'Android'}">
         <div style="height:100%">
 
           <h2><strong>{{ titles[1] }}</strong></h2>
@@ -110,7 +110,7 @@
 
 
     <ion-slide>
-      <ion-content class="has-header has-subheader">
+      <ion-content class="has-header" ng-class="{'has-subheader':device.platform !== 'Android'}">
         <div style="height:100%">
           <h2><strong>{{ titles[2] }}</strong></h2>
           <div class="list card">
@@ -119,10 +119,9 @@
             </div>
 
             <div class="item item-body">
-              <h4>{{ researchText[0] }}</h4>
+              {{ researchText[0] }}
             </div>
             <div class="item item-body">
-              <h4> 
                {{ researchText[1] }}
                 <a href="{{ contactLink }}" target="_new">
                   Contact us
