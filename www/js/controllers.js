@@ -196,10 +196,6 @@ $scope.questions = questions;
       $scope.getLength = function() {
         var savedData = LocalStorage.getObject(saveKey);
         return savedData.percentages.length;
-      }
-      
-      $scope.goToMyResults = function(){
-        $state.go("tab.dash-results");
       };
 })
 
