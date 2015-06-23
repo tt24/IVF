@@ -24,8 +24,32 @@ pre {
     font-style: normal; 
 }
 
+.mynavbar{
+  height: 44px !important;
+}
+
+.bar-margin-top {
+  margin-top: -1px !important;
+  line-height: 44px !important;
+}
+
 a {
 	display:block;
+}
+
+.builder-module-navigation {
+font-size: 1em;
+background: transparent url('images/nav-bg.png') bottom;
+display: block;
+width: 100%;
+margin: 0em auto;
+}
+
+.builder-module-navigation ul {
+display: block;
+margin: 0;
+padding: 0;
+width: 100%;
 }
 
 .bar-green {
@@ -473,6 +497,10 @@ div.percentile_pic img {
 p.percentile_value {
     font-weight: bold;
     margin: 0;
+}
+
+h2.header {
+  text-align: center;
 }
 
 div.instructions_title {

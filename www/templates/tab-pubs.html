@@ -1,10 +1,10 @@
 <ion-view title="Publications">
   <ion-slide-box>
     <ion-slide>
-      <ion-content class="has-header " ng-class="{'has-subheader':device.platform !== 'Android'}">
+      <ion-content class="has-header " ng-class="{'has-subheader':device.platform === 'Android'}">
         <div style="height:100%">
 
-          <h2><strong>{{ titles[0] }}</strong></h2>
+          <h2 class="header"><strong>{{ titles[0] }}</strong></h2>
 
           <div class="card">
 <div class="item item-divider">
@@ -18,13 +18,13 @@
           </div>
             <div class="list list-inset">
               <div class="item">
-                <pre><a href="{{ overviewLinks[0][0].link }}" target="_new">
+                <pre><a class="open-browser-window" ng-click="openNewBrowserWindow(overviewLinks[0][0].link)">
                   {{ overviewLinks[0][0].text }}
                 </a></pre>
               </div>
 
               <div class="item">
-                <pre><a href="{{ overviewLinks[0][1].link }}" target="_new">
+                <pre><a class="open-browser-window" ng-click="openNewBrowserWindow(overviewLinks[0][1].link)">
                   {{ overviewLinks[0][1].text }}
                 </a></pre>
               </div>
@@ -34,13 +34,13 @@
               </div>
 
               <div class="item">
-                <pre><a href="{{ overviewLinks[1][0].link }}" target="_new">
+                <pre><a class="open-browser-window" ng-click="openNewBrowserWindow(overviewLinks[1][0].link)">
                   {{ overviewLinks[1][0].text }}
                 </a></pre>
               </div>
 
               <div class="item">
-                <pre><a href="{{ overviewLinks[1][1].link }}" target="_new">
+                <pre><a class="open-browser-window" ng-click="openNewBrowserWindow(overviewLinks[1][1].link)">
                   {{ overviewLinks[1][1].text }}
                 </a></pre>
               </div>
@@ -50,7 +50,7 @@
           <div class="list list-inset">
 
     <div class="item">
-      <a href="{{ overviewLinks[2][0].link }}" target="_new" class="link link-indent">
+      <a class="open-browser-window link link-indent" ng-click="openNewBrowserWindow(overviewLinks[2][0].link)">
             <span>
               {{ overviewLinks[2][0].text }}
             </span>
@@ -67,7 +67,7 @@
       <ion-content class="has-header" ng-class="{'has-subheader':device.platform !== 'Android'}">
         <div style="height:100%">
 
-          <h2><strong>{{ titles[1] }}</strong></h2>
+          <h2 class="header"><strong>{{ titles[1] }}</strong></h2>
 
           <div class="card">
             <div class="item item-text-wrap">
@@ -76,13 +76,13 @@
               </h2>
               <ul class="list-2">
                 <li class="link">
-                  <a href="{{ paperDownloadLink }}" target="_new">
-                    Download Now
+                  <a class="open-browser-window" ng-click="openNewBrowserWindow(paperDownloadLink)">
+                    Download Now 
                   </a>
                 </li>
               </ul>
-              <a href="{{ paperMoreInfoLink }}" target="_new" class="link">
-                <span>More Info</span>
+              <a class="open-browser-window" ng-click="openNewBrowserWindow(paperMoreInfoLink)">
+                <span>More Info</span> 
               </a>
             </div>
           </div>
@@ -90,7 +90,7 @@
 
           <div class="card">
             <div class="item item-text-wrap">
-              <strong><a href="{{ paperPLOSLink }}">{{paperPLOSTitles[0]}}</a></strong>
+              <strong><a class="open-browser-window" ng-click="openNewBrowserWindow(paperPLOSLink)">{{paperPLOSTitles[0]}}</a></strong>
               <br /> 
               {{ paperPLOSText[0] }}
               <br />
@@ -112,7 +112,7 @@
     <ion-slide>
       <ion-content class="has-header" ng-class="{'has-subheader':device.platform !== 'Android'}">
         <div style="height:100%">
-          <h2><strong>{{ titles[2] }}</strong></h2>
+          <h2 class="header"><strong>{{ titles[2] }}</strong></h2>
           <div class="list card">
             <div class="item item-body">
               <img src="{{ researchPicture }}" class="full-image" />
@@ -123,8 +123,8 @@
             </div>
             <div class="item item-body">
                {{ researchText[1] }}
-                <a href="{{ contactLink }}" target="_new">
-                  Contact us
+                <a class="open-browser-window" ng-click="openNewBrowserWindow(contactLink)">
+                  Contact us 
                 </a>
               </h4>
             </div>
