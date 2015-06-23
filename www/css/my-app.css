@@ -33,6 +33,10 @@ a {
   color: white !important;
 }
 
+.results_font {
+  font-size: .6em !important;
+}
+
 .tabbar a.active {
   color: #56A79C;
 }

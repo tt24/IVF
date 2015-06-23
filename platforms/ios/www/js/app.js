@@ -26,7 +26,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+  $ionicConfigProvider.tabs.position('bottom');
 
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
@@ -84,7 +85,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     url: '/publications',
     views:{
       'tab-pubs':{
-        templateUrl: 'templates/tab-pubs.html'
+        templateUrl: 'templates/tab-pubs.html',
+        controller: 'pubsCtrl'
       }
     }
   })
@@ -146,7 +148,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         
       $scope.setAnswer = function(id, value, text){
         $scope.answers[id] = {"text": text, "value":value};
-        $scope.nextQuestion();     
+        $scope.nextQuestion();    
+        if(Object.keys($scope.answers).length === $scope.questions.length){
+          $scope.calculateResults();
+        } 
       };
     },
     controllerAs:'survey'
@@ -164,5 +169,6 @@ Chart.defaults.global.colours = [
         pointHighlightStroke: "#6B5D79"
     }
 ];
+
 
 
