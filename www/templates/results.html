@@ -2,12 +2,11 @@
   <ion-content class="has-header">
   <br><br>
   <div ng-controller="GraphCtrl" >
-    <ion-scroll zooming="true" direction="xy" style="width: 100%; ">
-  <div><canvas id="bar" class="chart chart-line graph" data="graph.data" labels="graph.labels" series='graph.series' height="100%"></canvas></div>
-</ion-scroll>
-    <div class="row" >
-    <div class="card" ng-repeat="answer in answers" style="font-size: .6em;">
-  <div class="item item-text-wrap" > <span style="color: #6B5D79; font-size: .9em;">Date: </span> {{graph.labels[$index]}}
+  <canvas id="bar" class="chart chart-line graph" data="graph.data" labels="graph.labels" series='graph.series' height="100%"></canvas>
+    <div class="row" class="results_font">
+    <div class="col col-50">
+    <div class="card" ng-repeat="answer in answers" ng-if="$index%2==0">
+  <div class="item item-text-wrap" > <span style="color: #6B5D79; font-size: 1.0em;">Date: </span> {{graph.labels[$index]}}
   </div>
     <div class="item item-text-wrap" > <span style="color: #6B5D79;">Percentage: </span> {{graph.data[0][$index]}}%
   </div>
