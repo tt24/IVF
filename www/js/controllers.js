@@ -199,6 +199,8 @@ $scope.questions = questions;
 })
 
 .controller('pubsCtrl', function($scope) {
+  $scope.isAndroid = ionic.Platform.isAndroid();
+  
   $scope.titles = [
     'Publications Overview',
     'PLOS Medicine Paper',
