@@ -1,0 +1,17 @@
+<ion-view view-title="About">
+  <ion-content class="has-header has-subheader" ng-controller="AboutCtrl as about">
+  	<div class="list card" ng-repeat="person in people">
+  	  <div class="item item-avatar">
+  	    <img src={{person.img}}>
+  	    <h2>{{person.name}}</h2>
+  	    <p>{{person.university}}</p>
+  	  </div>	  
+  	  <div class="item item-text-wrap">
+  	    <h3>{{person.about}}</h3>
+  	    <p>{{person.role}}</p>
+  	  </div>
+  	   <a class="item item-icon-right icon-right ion-chevron-right open-browser-window" ng-click="openNewBrowserWindow(person.link)"> Learn More
+  	  </a>
+    </div>
+  </ion-content>
+</ion-view> 
