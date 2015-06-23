@@ -2,7 +2,9 @@
   <ion-content class="has-header">
   <br><br>
   <div ng-controller="GraphCtrl" >
-    <canvas id="bar" class="chart chart-line graph" data="graph.data" labels="graph.labels" series='graph.series' height="100%"></canvas>
+    <ion-scroll zooming="true" direction="xy" style="width: 100%; ">
+  <div><canvas id="bar" class="chart chart-line graph" data="graph.data" labels="graph.labels" series='graph.series' height="100%"></canvas></div>
+</ion-scroll>
     <div class="row">
     <div class="col col-50">
     <div class="card" ng-repeat="answer in answers" ng-if="$index%2==0">
