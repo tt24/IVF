@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="43a96a92-ef22-4765-9b8a-6e2d7c79f4cb" name="Default" comment="" />
+    <list default="true" id="3d3a6599-75f2-4eb2-ad83-29b4dd35c4fc" name="Default" comment="" />
     <ignored path="android.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -940,7 +940,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="5740590821582" />
+        <entry key="$PROJECT_DIR$" value="5740597247381" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -1220,13 +1220,6 @@
       <projects_view />
     </option>
   </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHome" value="Bundled (Maven 3)" />
-      </MavenGeneralSettings>
-    </option>
-  </component>
   <component name="NamedScopeManager">
     <order />
   </component>
@@ -1392,10 +1385,10 @@
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="43a96a92-ef22-4765-9b8a-6e2d7c79f4cb" name="Default" comment="" />
-      <created>1435149528751</created>
+      <changelist id="3d3a6599-75f2-4eb2-ad83-29b4dd35c4fc" name="Default" comment="" />
+      <created>1435152728622</created>
       <option name="number" value="Default" />
-      <updated>1435149528751</updated>
+      <updated>1435152728622</updated>
     </task>
     <servers />
   </component>

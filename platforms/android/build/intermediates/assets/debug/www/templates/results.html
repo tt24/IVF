@@ -1,4 +1,7 @@
-<ion-view view-title="Results">
+
+<ion-view>
+<ion-nav-title> <h4 class="title-colour"> Results </h4>
+</ion-nav-title>
   <ion-content class="has-header" ng-controller="GraphCtrl">
   <br><br>
   <h2 class="title" ng-if="!setDisplayResults()">There are no results to be displayed yet!</h2>
@@ -7,58 +10,58 @@
     <div class="row" class="results_font">
     <div class="col col-50">
     <div class="card" ng-repeat="answer in answers" ng-if="$index%2==0">
-  <div class="item item-text-wrap" > <span style="color: #6B5D79; font-size: 1.0em;">Date: </span> {{graph.labels[$index]}}
+  <div class="item results-font item-text-wrap" > <span style="color: #6B5D79; font-size: 1.0em;">Date: </span> {{graph.labels[$index]}}
   </div>
-    <div class="item item-text-wrap" > <span style="color: #6B5D79;">Percentage: </span> {{graph.data[0][$index]}}%
+    <div class="item results-font item-text-wrap" > <span style="color: #6B5D79;">Percentage: </span> {{graph.data[0][$index]}}%
   </div>
-  <div class="item item-text-wrap" > <span style="color: #6B5D79;">Age: </span> {{answer.age.text}}
+  <div class="item results-font  item-text-wrap" > <span style="color: #6B5D79;">Age: </span> {{answer.age.text}}
   </div>
-    <div class="item item-text-wrap" > <span style="color: #6B5D79;">Years trying:</span> {{answer.duration.text}}
+    <div class="item results-font item-text-wrap" > <span style="color: #6B5D79;">Years trying:</span> {{answer.duration.text}}
   </div>
-  <div class="item item-text-wrap" > {{answer.source.text}}
+  <div class="item results-font item-text-wrap" > {{answer.source.text}}
   </div>
-    <div class="item item-text-wrap" > <span style="color: #6B5D79;">Cause:</span> {{answer.cause.text}}
+    <div class="item results-font item-text-wrap" > <span style="color: #6B5D79;">Cause:</span> {{answer.cause.text}}
   </div>
-  <div class="item item-text-wrap" > <span style="color: #6B5D79;">Attempts:</span> {{answer.attempts.text}}
+  <div class="item results-font item-text-wrap" > <span style="color: #6B5D79;">Attempts:</span> {{answer.attempts.text}}
   </div>
-    <div class="item item-text-wrap" > <span style="color: #6B5D79;">Unsuccessful attempts:</span> {{answer.unsuccesful.text}}
+    <div class="item results-font item-text-wrap" > <span style="color: #6B5D79;">Unsuccessful attempts:</span> {{answer.unsuccesful.text}}
   </div>
-      <div class="item item-text-wrap" > <span style="color: #6B5D79;">History:</span> {{answer.history.text}}
+      <div class="item results-font item-text-wrap" > <span style="color: #6B5D79;">History:</span> {{answer.history.text}}
   </div>
-      <div class="item item-text-wrap" > <span style="color: #6B5D79;">Medication:</span> {{answer.medication.text}}
+      <div class="item results-font item-text-wrap" > <span style="color: #6B5D79;">Medication:</span> {{answer.medication.text}}
   </div>
-   <div class="item item-text-wrap" > <span style="color: #6B5D79;">ICSI:</span> {{answer.icsi.text}}
+   <div class="item results-font item-text-wrap" > <span style="color: #6B5D79;">ICSI:</span> {{answer.icsi.text}}
   </div>
 </div>
 </div>
-  <div class="col col-50">
-      <div class="card" ng-repeat="answer in answers" ng-if="$index%2==1">
-      	  <div class="item item-text-wrap" > <span style="color: #6B5D79;">Date: </span> {{graph.labels[$index]}}
-          </div>
-            <div class="item item-text-wrap" > <span style="color: #6B5D79;">Percentage: </span> {{graph.data[0][$index]}}%
-          </div>
-          <div class="item item-text-wrap" > <span style="color: #6B5D79;">Age: </span> {{answer.age.text}}
-          </div>
-            <div class="item item-text-wrap" > <span style="color: #6B5D79;">Years trying:</span> {{answer.duration.text}}
-          </div>
-          <div class="item item-text-wrap" > {{answer.source.text}}
-          </div>
-            <div class="item item-text-wrap" > <span style="color: #6B5D79;">Cause:</span> {{answer.cause.text}}
-          </div>
-          <div class="item item-text-wrap" > <span style="color: #6B5D79;">Attempts:</span> {{answer.attempts.text}}
-          </div>
-            <div class="item item-text-wrap" > <span style="color: #6B5D79;">Unsuccessful attempts:</span> {{answer.unsuccesful.text}}
-          </div>
-              <div class="item item-text-wrap" > <span style="color: #6B5D79;">History:</span> {{answer.history.text}}
-          </div>
-              <div class="item item-text-wrap" > <span style="color: #6B5D79;">Medication:</span> {{answer.medication.text}}
-          </div>
-           <div class="item item-text-wrap" > <span style="color: #6B5D79;">ICSI:</span> {{answer.icsi.text}}
-          </div>
-        </div>
-      </div>
-    </div>
-  <button class="button button-block" ng-click="resetSave()">Reset Save</button>
+<div class="col col-50">
+    <div class="card" ng-repeat="answer in answers" ng-if="$index%2==1">
+    	  <div class="item results-font item-text-wrap" > <span style="color: #6B5D79;">Date: </span> {{graph.labels[$index]}}
   </div>
+    <div class="item results-font item-text-wrap" > <span style="color: #6B5D79;">Percentage: </span> {{graph.data[0][$index]}}%
+  </div>
+  <div class="item results-font item-text-wrap" > <span style="color: #6B5D79;">Age: </span> {{answer.age.text}}
+  </div>
+    <div class="item results-font item-text-wrap" > <span style="color: #6B5D79;">Years trying:</span> {{answer.duration.text}}
+  </div>
+  <div class="item results-font item-text-wrap" > {{answer.source.text}}
+  </div>
+    <div class="item results-font item-text-wrap" > <span style="color: #6B5D79;">Cause:</span> {{answer.cause.text}}
+  </div>
+  <div class="item results-font item-text-wrap" > <span style="color: #6B5D79;">Attempts:</span> {{answer.attempts.text}}
+  </div>
+    <div class="item results-font item-text-wrap" > <span style="color: #6B5D79;">Unsuccessful attempts:</span> {{answer.unsuccesful.text}}
+  </div>
+      <div class="item results-font item-text-wrap" > <span style="color: #6B5D79;">History:</span> {{answer.history.text}}
+  </div>
+      <div class="item results-font item-text-wrap" > <span style="color: #6B5D79;">Medication:</span> {{answer.medication.text}}
+  </div>
+   <div class="item results-font item-text-wrap" > <span style="color: #6B5D79;">ICSI:</span> {{answer.icsi.text}}
+  </div>
+</div></div>
+</div>
+ <button class="button button-block" ng-click="resetSave()">Reset Save</button>
+</div>
+
   </ion-content>
 </ion-view>

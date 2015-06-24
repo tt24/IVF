@@ -1,48 +1,51 @@
-<ion-view title="Publications">
+<ion-view>
+<ion-nav-title> <h4 class="title-colour"> Publications </h4>
+</ion-nav-title>
   <ion-slide-box>
     <ion-slide>
-      <ion-content class="has-header " ng-class="{'has-subheader': !isAndroid}">
+      <ion-content class="has-header ">
         <div style="height:100%">
 
-          <h2 class="header"><strong>{{ titles[0] }}</strong></h2>
+          <h3 class="header"><strong>{{ titles[0] }}</strong></h3>
 
           <div class="card">
-<div class="item item-divider">
+<div class="item divider-colour">
                 <pre>{{ overviewText[0] }} </pre>
 </div>
           </div>
 
           <div class="card">
-          <div class="item item-divider">
+          <div class="item divider-colour">
               <pre>{{ overviewText[1] }}</pre>
           </div>
             <div class="list list-inset">
               <div class="item">
-                <pre><a class="open-browser-window" ng-click="openNewBrowserWindow(overviewLinks[0][0].link)">
-                  {{ overviewLinks[0][0].text }}
-                </a></pre>
+                <a class="open-browser-window" ng-click="openNewBrowserWindow(overviewLinks[0][0].link)">
+                 <pre> {{ overviewLinks[0][0].text }} </pre>
+                </a>
               </div>
 
               <div class="item">
-                <pre><a class="open-browser-window" ng-click="openNewBrowserWindow(overviewLinks[0][1].link)">
-                  {{ overviewLinks[0][1].text }}
-                </a></pre>
+               <a class="open-browser-window" ng-click="openNewBrowserWindow(overviewLinks[0][1].link)">
+                 <pre> {{ overviewLinks[0][1].text }} </pre>
+                </a>
               </div>
 
-              <div class="item item-divider">
+              <div class="item divider-colour">
                  <pre>{{ overviewText[2] }}</pre>
               </div>
 
               <div class="item">
-                <pre><a class="open-browser-window" ng-click="openNewBrowserWindow(overviewLinks[1][0].link)">
-                  {{ overviewLinks[1][0].text }}
-                </a></pre>
-              </div>
+                <a class="open-browser-window" ng-click="openNewBrowserWindow(overviewLinks[1][0].link)">
+                  <pre>{{ overviewLinks[1][0].text }} </pre>
+
+                </a>        
+                      </div>
 
               <div class="item">
-                <pre><a class="open-browser-window" ng-click="openNewBrowserWindow(overviewLinks[1][1].link)">
-                  {{ overviewLinks[1][1].text }}
-                </a></pre>
+                <a class="open-browser-window" ng-click="openNewBrowserWindow(overviewLinks[1][1].link)">
+                  <pre>{{ overviewLinks[1][1].text }}</pre>
+                </a>
               </div>
             </div>
 
@@ -64,10 +67,10 @@
 
 
     <ion-slide>
-      <ion-content class="has-header" ng-class="{'has-subheader': !isAndroid}">
+      <ion-content class="has-header">
         <div style="height:100%">
 
-          <h2 class="header"><strong>{{ titles[1] }}</strong></h2>
+          <h3 class="header"><strong>{{ titles[1] }}</strong></h3>
 
           <div class="card">
             <div class="item item-text-wrap">
@@ -110,9 +113,9 @@
 
 
     <ion-slide>
-      <ion-content class="has-header" ng-class="{'has-subheader': !isAndroid}">
+      <ion-content class="has-header">
         <div style="height:100%">
-          <h2 class="header"><strong>{{ titles[2] }}</strong></h2>
+          <h3 class="header"><strong>{{ titles[2] }}</strong></h3>
           <div class="list card">
             <div class="item item-body">
               <img src="{{ researchPicture }}" class="full-image" />
