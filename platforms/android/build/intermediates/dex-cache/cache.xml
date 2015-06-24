@@ -2,6 +2,13 @@
 <items version="2" >
 
     <item
+        jar="/cs/home/gf38/Documents/IonicApps/IVFremastered/platforms/android/build/intermediates/exploded-aar/android/CordovaLib/unspecified/debug/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="934aaa1c45adfb9806862f5c9d9006238d65de27">
+        <dex dex="/cs/home/gf38/Documents/IonicApps/IVFremastered/platforms/android/build/intermediates/pre-dexed/debug/classes-5ff26f07c08086af7f5786f5d549b84a317b98f2.jar" />
+    </item>
+    <item
         jar="/cs/home/gf38/Documents/IonicApps/IVF/platforms/android/build/intermediates/exploded-aar/android/CordovaLib/unspecified/debug/classes.jar"
         jumboMode="false"
         revision="22.0.1"

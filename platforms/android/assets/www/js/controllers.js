@@ -49,7 +49,7 @@ angular.module('starter.controllers', [])
   };
 }) 
 
-.controller('GraphCtrl', function($scope, LocalStorage) {
+.controller('GraphCtrl', function($scope, LocalStorage, $ionicPopup) {
   var savedData = LocalStorage.getObject(saveKey);
   
   $scope.graph = {};
@@ -57,6 +57,24 @@ angular.module('starter.controllers', [])
   $scope.graph.labels = savedData.dates;
 
   $scope.answers = savedData.answers;
+  
+  $scope.resetSave = function(){
+        var confirmPopup = $ionicPopup.confirm({
+          title:"Resetting your results",
+          template:"Are you sure you would like to wipe all your results?"
+        });
+        
+        confirmPopup.then(function(result){
+          if(result){
+            LocalStorage.setObject(saveKey, {dates:[], percentages:[], answers:[]});
+            $scope.answers = {};
+          }
+        });
+        
+      };
+  $scope.setDisplayResults = function(){
+    return Object.keys($scope.answers).length !== 0;
+  };
 })
 
 .controller('SurveyController', function($scope, $ionicSlideBoxDelegate, LocalStorage, $state){
@@ -188,11 +206,7 @@ $scope.questions = questions;
         $scope.answers = {};
         $ionicSlideBoxDelegate.slide(0);
       };
-      
-      $scope.resetSave = function(){
-        LocalStorage.setObject(saveKey, {dates:[], percentages:[], answers:[]});
-      };
-
+          
       $scope.getLength = function() {
         var savedData = LocalStorage.getObject(saveKey);
         return savedData.percentages.length;
@@ -230,6 +244,10 @@ $scope.questions = questions;
       text: 'Find more papers by the authors'
     }]];
 
+    $scope.openNewBrowserWindow = function(url){
+      window.open(url, "_server", "location=yes");
+    };
+
     $scope.paperDownloadText = 'The full PLOS Medicine paper that IVFpredict was based is now available for free download.';
 
     $scope.paperDownloadLink = 'http://www.plosmedicine.org/article/info%3Adoi%2F10.1371%2Fjournal.pmed.1000386#s6';
@@ -263,11 +281,11 @@ var people = [
     { name: 'Dr Tom Kelsey', university:'St Andrews University' ,about:'Dr Tom Kelsey is a Lecturer at the University of Saint Andrews, and an international expert in mathematical medels for biomedicine.', role:'Tom, together with his colleague Dr Chris Jeferson, were instrumental in developing the online calculator and smartphone apps', link: 'http://tom.host.cs.st-andrews.ac.uk', img:'img/people/Tom.jpg'},
     { name:'Professor Scott Nelson', university:'Glasgow University', about:'Professor Scott Nelson is the Muirhead Professor of Obstetrics and Gyneacology at the University of Glasgow and an international expert in IVF.',role:'His research aims to understand and improve the health of women and their offspring throughout their reproductive life span. He is directly involved in looking after patients in Scotland\'s two largest and most succesful IVF units.', link:'http://www.gla.ac.uk/schools/medecine/staff/scottnelson', img:'img/people/ScottNelson.jpg'},
     { name:'Professor Debbie Lawlor', university:'Bristol University', about:'Professor Debbie Lawlor is the Professor of Epidemiology at Bristol University and an international expert in translational research.', role:'Debbie\'s research is underpinned by her interest in understanding how biological (including genetic), social and environmental exposures from across the life course affect the risk of chronic disease in adulthood and how, therefore, appropriate prevention of these conditions can be achieved.',link:'http://bristol.ac.uk/cardiovascular/people/16893/index.html',img:'img/people/DebbieLawlor.jpg'}
-]
+];
 
 var abouts = [
     { title: 'IVFpredict was developed by Professor Scott Nelson and Professor Debbie Lawlor and published in PLOS Medicine.',info:'Using data from more than 144,000 IVF cycles they have developed a mathematical model that allows couples to have the most accurate prediction of their chance of a live birth with IVF. In conjunction with Dr Tom Kelsey they have transformed this complex formula into a simple online and smartphone based calculator.', img:'img/people/Tom.jpg', link:'http://ivfpredict.com'}
-]
+];
 
 var questions = [
         {
