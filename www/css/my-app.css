@@ -26,6 +26,14 @@ h4.title-colour {
   color: white !important;
 }
 
+.divider-colour {
+  background-color: #f5f5f5 !important;
+}
+
+.results-font {
+  font-size: 14px !important;
+}
+
 .mynavbar{
   height: 44px !important;
 }
