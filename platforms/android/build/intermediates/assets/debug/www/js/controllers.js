@@ -61,16 +61,19 @@ angular.module('starter.controllers', [])
   $scope.resetSave = function(){
         var confirmPopup = $ionicPopup.confirm({
           title:"Resetting your results",
-          template:"Are you sure you would like to wipe all your results?"
-        });
-        
-        confirmPopup.then(function(result){
-          if(result){
-            LocalStorage.setObject(saveKey, {dates:[], percentages:[], answers:[]});
+          template:"Are you sure you would like to wipe all your results?",
+          buttons: [
+           { text: 'No' },
+           {
+             text: '<b>Yes</b>',
+             type: 'button-positive',
+             onTap: function() {
+                 LocalStorage.setObject(saveKey, {dates:[], percentages:[], answers:[]});
             $scope.answers = {};
-          }
-        });
-        
+                }
+           }
+          ]
+        });        
       };
   $scope.setDisplayResults = function(){
     return Object.keys($scope.answers).length !== 0;

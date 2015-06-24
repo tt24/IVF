@@ -3,8 +3,11 @@
 <ion-nav-title> <h4 class="title-colour"> Results </h4>
 </ion-nav-title>
   <ion-content class="has-header" ng-controller="GraphCtrl">
-  <br><br>
-  <h2 class="title" ng-if="!setDisplayResults()">There are no results to be displayed yet!</h2>
+  <div class="card" ng-if="!setDisplayResults()">
+    <div class="item item-text-wrap">
+      <h2 class="title" >There are no results to be displayed yet!</h2>
+    </div>
+  </div>
   <div  ng-if="setDisplayResults()" >
   <canvas id="bar" class="chart chart-line graph" data="graph.data" labels="graph.labels" series='graph.series' height="100%"></canvas>
     <div class="row" class="results_font">
