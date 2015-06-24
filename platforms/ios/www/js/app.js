@@ -99,6 +99,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     }
   })
 
+ .state('tab.account-researchers', {
+    url: '/account/researchers',
+    views: {
+      'tab-account': {
+        templateUrl: 'templates/researchers.html'
+      }
+    }
+  })
+
     .state('tab.dash-results', {
     url: '/dash/results',
     views: {
@@ -157,6 +166,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     controllerAs:'survey'
     
   };
+  var isIOS = ionic.Platform.isIOS();
+  
 });
 
 Chart.defaults.global.colours = [

@@ -166,6 +166,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     controllerAs:'survey'
     
   };
+  var isIOS = ionic.Platform.isIOS();
+  
 });
 
 Chart.defaults.global.colours = [

@@ -192,7 +192,6 @@ $scope.questions = questions;
       $scope.resetSave = function(){
         LocalStorage.setObject(saveKey, {dates:[], percentages:[], answers:[]});
       };
-
       $scope.getLength = function() {
         var savedData = LocalStorage.getObject(saveKey);
         return savedData.percentages.length;
@@ -200,6 +199,8 @@ $scope.questions = questions;
 })
 
 .controller('pubsCtrl', function($scope) {
+  $scope.isAndroid = ionic.Platform.isAndroid();
+  
   $scope.titles = [
     'Publications Overview',
     'PLOS Medicine Paper',
@@ -227,6 +228,10 @@ $scope.questions = questions;
     { link: 'http://www.ncbi.nlm.nih.gov/PubMed/',
       text: 'Find more papers by the authors'
     }]];
+
+    $scope.openNewBrowserWindow = function(url){
+      window.open(url, "_server", "location=yes");
+    };
 
     $scope.paperDownloadText = 'The full PLOS Medicine paper that IVFpredict was based is now available for free download.';
 
