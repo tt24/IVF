@@ -1,5 +1,7 @@
-<ion-view view-title="About">
-  <ion-content class="has-header has-subheader" ng-controller="InfoCtrl as about">
+<ion-view>
+<ion-nav-title> <h4 class="title-colour"> About Methodology </h4>
+</ion-nav-title>
+  <ion-content class="has-header" ng-controller="InfoCtrl as about">
   	<div class="list card" ng-repeat="aboutInfo in abouts">
   	  <div class="item item-avatar item-text-wrap">
   	    <img src={{aboutInfo.img}}>
