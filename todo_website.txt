@@ -1,0 +1,6 @@
+1. authenticate with username@wkapps.host.cs.st-andrews.ac.uk
+2. ksu wkapps
+3. cd 
+4. cd public_html/IVFpredict/IVFpredict
+5. The index.html to be modified is in the web folder => cd web
+6. vi index.html
