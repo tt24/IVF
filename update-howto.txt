@@ -1,0 +1,23 @@
+cd <path_to_the_directory> //change directory to the one where the project should be created
+git clone http://github.com/tt24/IVF //the project should now be on your machine
+
+//to see how the app looks like in the browser you need to install ionic on your machine first
+//follow the link for instructions http://ionicframework.com/getting-started/
+//once the installation is complete type the command
+ionic serve
+//and choose localhost
+//a window in your browser should automatically open
+//to quit type q
+
+//to change text on any page of the app open file controller.js in the folder IVF/www/js
+
+//to save changes and do the following commands to update the project on github
+git add .
+git commit -m "Enter your commit message here"
+git remote add origin http://github.com/tt24/IVF
+git push origin master
+//your updates should now be in the shared project
+
+//if at any point we make changes to the project to see them type
+git pull origin master
+

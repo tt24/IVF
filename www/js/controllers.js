@@ -2,7 +2,11 @@ angular.module('starter.controllers', [])
 
 .controller('DashCtrl', function($scope) {})
 
-.controller('InstCtrl', function($scope) {})
+.controller('InstCtrl', function($scope) {
+  $scope.inst = ['For each of the nine steps, you choose the option that matches the IVF situation you have in mind. This could either be your current situation, or a hypothetical situation.',
+                        'For some of the steps, you will need some clinical information, such as causes of infertility or proposed medication.',
+                         'After the nine steps, there is a summary page that lists the choices you made, together with the calculated percentage chance of a live birth for an IVF cycle.'];
+})
 
 .controller('CalcCtrl', function($scope) {})
 
