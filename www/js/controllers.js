@@ -263,7 +263,7 @@ $scope.questions = questions;
 
     $scope.paperPLOSText = ['PLOS Medicine is the leading open-access medical journal, providing an innovative and influential venue for research and comment on the major challenges to human health worldwide.','Making the world\'s scientific and medical literature a freely available public resource.','Outstanding primary research articles in all areas of medicine; from clinically directed basic science to epidemiology and clinical trials.'];
 
-    $scope.researchPicture = 'img/research.jpg';
+    $scope.researchPicture = 'img/research1.jpg';
 
     $scope.researchText = [
       'The team have several ongoing projects trying to improve IVF live birth success rates and develop novel reproductive lifespan prediction models',
