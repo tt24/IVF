@@ -232,7 +232,7 @@ $scope.questions = questions;
 
    $scope.overviewLinks = [[
     { link: 'http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0121357',
-      text: 'External Validation of IVFpredict: A Study of 130,960 IVF Cycles'},
+      text: 'External validation of IVFpredict: A study of 130,960 IVF cycles'},
     { link: 'http://humupd.oxfordjournals.org/content/20/3/370.long',
       text: 'Using AMH to indivualise treatment strategies' }
    ],
