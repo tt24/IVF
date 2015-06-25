@@ -243,8 +243,14 @@ $scope.questions = questions;
       text: 'Interpreting AMH for your age' }
    ],
    [
-    { link: 'http://www.ncbi.nlm.nih.gov/PubMed/',
-      text: 'Find more papers by the authors'
+    { link: 'http://www.ncbi.nlm.nih.gov/pubmed/?term=kelsey+tw',
+      text: 'Tom Kelsey'
+    },
+    { link: 'http://www.ncbi.nlm.nih.gov/pubmed/?term=nelson+sm',
+      text: 'Scott Nelson'
+    },
+    { link: 'http://www.ncbi.nlm.nih.gov/pubmed/?term=lawlor+da',
+      text: 'Debbie Lawlor'
     }]];
 
     $scope.openNewBrowserWindow = function(url){
@@ -254,8 +260,6 @@ $scope.questions = questions;
     $scope.paperDownloadText = 'The full PLOS Medicine paper that IVFpredict was based is now available for free download.';
 
     $scope.paperDownloadLink = 'http://www.plosmedicine.org/article/info%3Adoi%2F10.1371%2Fjournal.pmed.1000386#s6';
-
-    $scope.paperMoreInfoLink = 'http://www.plosmedicine.org/home.action';
 
     $scope.paperPLOSLink = 'http://www.plosmedicine.org';
 

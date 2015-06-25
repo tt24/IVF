@@ -52,10 +52,27 @@
           </div>
           <div class="list list-inset">
 
+              <div class="item divider-colour">
+                 <pre>Find more papers by:</pre>
+              </div>
     <div class="item">
       <a class="open-browser-window link link-indent" ng-click="openNewBrowserWindow(overviewLinks[2][0].link)">
             <span>
               {{ overviewLinks[2][0].text }}
+            </span>
+          </a>
+    </div>
+        <div class="item">
+      <a class="open-browser-window link link-indent" ng-click="openNewBrowserWindow(overviewLinks[2][1].link)">
+            <span>
+              {{ overviewLinks[2][1].text }}
+            </span>
+          </a>
+    </div>
+        <div class="item">
+      <a class="open-browser-window link link-indent" ng-click="openNewBrowserWindow(overviewLinks[2][2].link)">
+            <span>
+              {{ overviewLinks[2][2].text }}
             </span>
           </a>
     </div>
@@ -84,9 +101,6 @@
                   </a>
                 </li>
               </ul>
-              <a class="open-browser-window" ng-click="openNewBrowserWindow(paperMoreInfoLink)">
-                <span>More Info</span> 
-              </a>
             </div>
           </div>
 
