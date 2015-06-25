@@ -227,20 +227,20 @@ $scope.questions = questions;
    $scope.overviewText = [
     'Professor Scott Nelson, Professor Debbie Lawlor and Dr Tom Kelsey have published more than 500 research papers. You can download some of these for free.',
     'Several of these publications are directly relevant to IVF, ensuring that patients get individualised treatment, optimal outcomes and maximal chances of a live birth. These include:',
-    'Use of AMH as a marker of your ovarian reserve'
+    'How your ovarian reserve changes over time'
    ];
 
    $scope.overviewLinks = [[
-    { link: 'http://www.plosone.org/article/info:doi/10.1371/journal.pone.0008772',
-      text: 'Calculating the rate of decline in your ovarian reserve from birth' },
-    { link: 'http://humrep.oxfordjournals.org/content/24/4/867.long',
+    { link: 'http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0121357',
+      text: 'External Validation of IVFpredict: A Study of 130,960 IVF Cycles'},
+    { link: 'http://humupd.oxfordjournals.org/content/20/3/370.long',
       text: 'Using AMH to indivualise treatment strategies' }
    ],
    [
-    { link: 'http://humrep.oxfordjournals.org/content/22/9/2414.long',
-      text: 'How AMH can predict live birth' },
-    { link: 'http://www.ncbi.nlm.nih.gov/pubmed/20869051',
-      text: 'Interpreting AMH for your age' }
+    { link: 'http://www.plosone.org/article/info:doi/10.1371/journal.pone.0008772',
+      text: 'Calculating the rate of decline in your ovarian reserve from birth' },
+    { link: 'http://press.endocrine.org/doi/10.1210/jc.2015-1298',
+      text: 'Ovarian reserve and age at menopause' }
    ],
    [
     { link: 'http://www.ncbi.nlm.nih.gov/pubmed/?term=kelsey+tw',
@@ -257,7 +257,7 @@ $scope.questions = questions;
       window.open(url, "_server", "location=yes");
     };
 
-    $scope.paperDownloadText = 'The full PLOS Medicine paper that IVFpredict was based is now available for free download.';
+    $scope.paperDownloadText = 'The full PLOS Medicine paper that IVFpredict is based on is available for free download.';
 
     $scope.paperDownloadLink = 'http://www.plosmedicine.org/article/info%3Adoi%2F10.1371%2Fjournal.pmed.1000386#s6';
 
