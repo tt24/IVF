@@ -65,7 +65,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     })
     .state('tab.chats.instructions',{
       url: '/instructions',
-      templateUrl: 'templates/instructions.html'
+      templateUrl: 'templates/instructions.html',
+      controller: 'InstCtrl'
     })
     .state('tab.chats.calculator',{
       url: '/calculator',
