@@ -2,18 +2,18 @@
 <items version="2" >
 
     <item
-        jar="/cs/home/gf38/Documents/IonicApps/IVFremastered/platforms/android/build/intermediates/exploded-aar/android/CordovaLib/unspecified/debug/classes.jar"
+        jar="/Users/tom/Dropbox/IAA-apps/IVF/platforms/android/build/intermediates/exploded-aar/android/CordovaLib/unspecified/release/classes.jar"
         jumboMode="false"
-        revision="22.0.1"
-        sha1="934aaa1c45adfb9806862f5c9d9006238d65de27">
-        <dex dex="/cs/home/gf38/Documents/IonicApps/IVFremastered/platforms/android/build/intermediates/pre-dexed/debug/classes-5ff26f07c08086af7f5786f5d549b84a317b98f2.jar" />
+        revision="21.1.2"
+        sha1="45362e22c405f85a15f5d4d583acd0fd2cbf8c8a">
+        <dex dex="/Users/tom/Dropbox/IAA-apps/IVF/platforms/android/build/intermediates/pre-dexed/release/classes-1ca6a6dab6b492875fe21e11f859e82059f8907e.jar" />
     </item>
     <item
-        jar="/cs/home/gf38/Documents/IonicApps/IVF/platforms/android/build/intermediates/exploded-aar/android/CordovaLib/unspecified/debug/classes.jar"
+        jar="/Users/tom/Dropbox/IAA-apps/IVF/platforms/android/build/intermediates/exploded-aar/android/CordovaLib/unspecified/debug/classes.jar"
         jumboMode="false"
-        revision="22.0.1"
-        sha1="5d27003fa4ae09e26c903ab09a3c49461dc55b2e">
-        <dex dex="/cs/home/gf38/Documents/IonicApps/IVF/platforms/android/build/intermediates/pre-dexed/debug/classes-3af19c98649a190bb71ae8eb07bc976048a81b20.jar" />
+        revision="21.1.2"
+        sha1="78c3e3d45695b2dc5b2f4dc612b9d75434c6b699">
+        <dex dex="/Users/tom/Dropbox/IAA-apps/IVF/platforms/android/build/intermediates/pre-dexed/debug/classes-436e10d7e9bcc68f51ecf9abf90e7342ceca7933.jar" />
     </item>
 
 </items>

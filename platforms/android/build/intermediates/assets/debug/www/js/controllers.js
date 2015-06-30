@@ -2,7 +2,11 @@ angular.module('starter.controllers', [])
 
 .controller('DashCtrl', function($scope) {})
 
-.controller('InstCtrl', function($scope) {})
+.controller('InstCtrl', function($scope) {
+  $scope.inst = ['For each of the nine steps, you choose the option that matches the IVF situation you have in mind. This could either be your current situation, or a hypothetical situation.',
+                        'For some of the steps, you will need some clinical information, such as causes of infertility or proposed medication.',
+                         'After the nine steps, there is a summary page that lists the choices you made, together with the calculated percentage chance of a live birth for an IVF cycle.'];
+})
 
 .controller('CalcCtrl', function($scope) {})
 
@@ -227,35 +231,39 @@ $scope.questions = questions;
    $scope.overviewText = [
     'Professor Scott Nelson, Professor Debbie Lawlor and Dr Tom Kelsey have published more than 500 research papers. You can download some of these for free.',
     'Several of these publications are directly relevant to IVF, ensuring that patients get individualised treatment, optimal outcomes and maximal chances of a live birth. These include:',
-    'Use of AMH as a marker of your ovarian reserve'
+    'How your ovarian reserve changes over time'
    ];
 
    $scope.overviewLinks = [[
-    { link: 'http://www.plosone.org/article/info:doi/10.1371/journal.pone.0008772',
-      text: 'Calculating the rate of decline in your ovarian reserve from birth' },
-    { link: 'http://humrep.oxfordjournals.org/content/24/4/867.long',
+    { link: 'http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0121357',
+      text: 'External validation of IVFpredict: A study of 130,960 IVF cycles'},
+    { link: 'http://humupd.oxfordjournals.org/content/20/3/370.long',
       text: 'Using AMH to indivualise treatment strategies' }
    ],
    [
-    { link: 'http://humrep.oxfordjournals.org/content/22/9/2414.long',
-      text: 'How AMH can predict live birth' },
-    { link: 'http://www.ncbi.nlm.nih.gov/pubmed/20869051',
-      text: 'Interpreting AMH for your age' }
+    { link: 'http://www.plosone.org/article/info:doi/10.1371/journal.pone.0008772',
+      text: 'Calculating the rate of decline in your ovarian reserve from birth' },
+    { link: 'http://press.endocrine.org/doi/10.1210/jc.2015-1298',
+      text: 'Ovarian reserve and age at menopause' }
    ],
    [
-    { link: 'http://www.ncbi.nlm.nih.gov/PubMed/',
-      text: 'Find more papers by the authors'
+    { link: 'http://www.ncbi.nlm.nih.gov/pubmed/?term=kelsey+tw',
+      text: 'Tom Kelsey'
+    },
+    { link: 'http://www.ncbi.nlm.nih.gov/pubmed/?term=nelson+sm',
+      text: 'Scott Nelson'
+    },
+    { link: 'http://www.ncbi.nlm.nih.gov/pubmed/?term=lawlor+da',
+      text: 'Debbie Lawlor'
     }]];
 
     $scope.openNewBrowserWindow = function(url){
       window.open(url, "_server", "location=yes");
     };
 
-    $scope.paperDownloadText = 'The full PLOS Medicine paper that IVFpredict was based is now available for free download.';
+    $scope.paperDownloadText = 'The full PLOS Medicine paper that IVFpredict is based on is available for free download.';
 
     $scope.paperDownloadLink = 'http://www.plosmedicine.org/article/info%3Adoi%2F10.1371%2Fjournal.pmed.1000386#s6';
-
-    $scope.paperMoreInfoLink = 'http://www.plosmedicine.org/home.action';
 
     $scope.paperPLOSLink = 'http://www.plosmedicine.org';
 
@@ -263,7 +271,7 @@ $scope.questions = questions;
 
     $scope.paperPLOSText = ['PLOS Medicine is the leading open-access medical journal, providing an innovative and influential venue for research and comment on the major challenges to human health worldwide.','Making the world\'s scientific and medical literature a freely available public resource.','Outstanding primary research articles in all areas of medicine; from clinically directed basic science to epidemiology and clinical trials.'];
 
-    $scope.researchPicture = 'img/research.jpg';
+    $scope.researchPicture = 'img/research1.jpg';
 
     $scope.researchText = [
       'The team have several ongoing projects trying to improve IVF live birth success rates and develop novel reproductive lifespan prediction models',
@@ -281,8 +289,8 @@ $scope.questions = questions;
 });
 
 var people = [
-    { name: 'Dr Tom Kelsey', university:'St Andrews University' ,about:'Dr Tom Kelsey is a Lecturer at the University of Saint Andrews, and an international expert in mathematical medels for biomedicine.', role:'Tom, together with his colleague Dr Chris Jeferson, were instrumental in developing the online calculator and smartphone apps', link: 'http://tom.host.cs.st-andrews.ac.uk', img:'img/people/Tom.jpg'},
-    { name:'Professor Scott Nelson', university:'Glasgow University', about:'Professor Scott Nelson is the Muirhead Professor of Obstetrics and Gyneacology at the University of Glasgow and an international expert in IVF.',role:'His research aims to understand and improve the health of women and their offspring throughout their reproductive life span. He is directly involved in looking after patients in Scotland\'s two largest and most succesful IVF units.', link:'http://www.gla.ac.uk/schools/medecine/staff/scottnelson', img:'img/people/ScottNelson.jpg'},
+    { name: 'Dr Tom Kelsey', university:'St Andrews University' ,about:'Dr Tom Kelsey is a Lecturer at the University of Saint Andrews, and an international expert in mathematical medels for biomedicine.', role:'Tom, together with his colleague Dr Chris Jefferson, were instrumental in developing the online calculator and smartphone apps', link: 'http://tom.host.cs.st-andrews.ac.uk', img:'img/people/Tom.jpg'},
+    { name:'Professor Scott Nelson', university:'Glasgow University', about:'Professor Scott Nelson is the Muirhead Professor of Obstetrics and Gyneacology at the University of Glasgow and an international expert in IVF.',role:'His research aims to understand and improve the health of women and their offspring throughout their reproductive life span. He is directly involved in looking after patients in Scotland\'s two largest and most succesful IVF units.', link:'https://scholar.google.co.uk/citations?user=X_cVXhoAAAAJ&hl=en', img:'img/people/ScottNelson.jpg'},
     { name:'Professor Debbie Lawlor', university:'Bristol University', about:'Professor Debbie Lawlor is the Professor of Epidemiology at Bristol University and an international expert in translational research.', role:'Debbie\'s research is underpinned by her interest in understanding how biological (including genetic), social and environmental exposures from across the life course affect the risk of chronic disease in adulthood and how, therefore, appropriate prevention of these conditions can be achieved.',link:'http://bristol.ac.uk/cardiovascular/people/16893/index.html',img:'img/people/DebbieLawlor.jpg'}
 ];
 
